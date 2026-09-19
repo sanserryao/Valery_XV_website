@@ -1,0 +1,483 @@
+/* ==========================================================================
+   Mis XV — Valery
+   Paleta: azul marino + dorado/mostaza sobre crema/marfil
+   ========================================================================== */
+
+:root {
+  --navy-deep: #0b1226;
+  --navy: #101c3b;
+  --navy-2: #182a52;
+  --gold: #c9a24b;
+  --gold-light: #e8cd85;
+  --gold-dark: #9c7a2e;
+  --cream: #faf5e7;
+  --cream-2: #f1e7cf;
+  --ivory: #fffdf6;
+  --ink: #241f14;
+  --ink-soft: #4a4330;
+
+  --font-script: 'Great Vibes', cursive;
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'Montserrat', sans-serif;
+
+  --section-pad-y: clamp(4rem, 9vw, 7rem);
+  --container-w: 640px;
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body, h1, h2, h3, p, figure { margin: 0; }
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--cream);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ---------- Layout helpers ---------- */
+.section {
+  position: relative;
+  padding: var(--section-pad-y) 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+.section--cream { background: var(--cream); color: var(--ink); }
+.section--navy  { background: var(--navy); color: var(--cream); }
+
+.section__title {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-style: italic;
+  font-size: clamp(1.6rem, 4.5vw, 2.1rem);
+  letter-spacing: 0.04em;
+  color: var(--gold-light);
+  margin-bottom: 2.25rem;
+}
+.section__title--dark { color: var(--gold-dark); }
+
+/* ---------- Reveal on scroll ---------- */
+.reveal {
+  opacity: 0;
+  transition: opacity 0.9s ease, transform 0.9s ease;
+  will-change: opacity, transform;
+}
+.reveal[data-reveal="up"]    { transform: translateY(28px); }
+.reveal[data-reveal="left"]  { transform: translateX(-28px); }
+.reveal[data-reveal="right"] { transform: translateX(28px); }
+.reveal[data-reveal="scale"] { transform: scale(0.85); }
+.reveal[data-reveal="fade"]  { transform: none; }
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- Ornament divider (reused between sections) ---------- */
+.ornament-divider { width: 200px; max-width: 60%; margin: 0 auto 2rem; color: var(--gold); }
+.ornament-divider svg { width: 100%; height: auto; }
+.ornament-divider path, .ornament-divider circle {
+  fill: none; stroke: currentColor; stroke-width: 1;
+}
+.ornament-divider circle { fill: currentColor; stroke: none; }
+.decor__divider { width: 140px; color: var(--gold); align-self: center; margin: 0 1rem; }
+.decor__divider svg { width: 100%; height: auto; }
+.decor__divider path { fill: none; stroke: currentColor; stroke-width: 1; }
+.decor__divider circle:first-of-type { fill: currentColor; stroke: none; }
+.decor__divider path:nth-child(3) { fill: var(--gold); stroke: none; }
+
+/* ==========================================================================
+   Emblem (crest) — used in hero opening and final closing
+   ========================================================================== */
+.emblem {
+  position: relative;
+  display: grid;
+  place-items: center;
+  color: var(--gold-light);
+}
+.emblem--small { width: 108px; height: 108px; margin-bottom: 1.25rem; }
+.emblem--large { width: 190px; height: 190px; margin-bottom: 1.5rem; }
+.emblem__ring { position: absolute; inset: 0; width: 100%; height: 100%; }
+.emblem__ring circle { fill: none; stroke: currentColor; stroke-width: 1; }
+.emblem__sprig { fill: currentColor; stroke: none; }
+.emblem__hat { fill: none; stroke: currentColor; stroke-width: 1.4; }
+.emblem__label {
+  font-family: var(--font-script);
+  font-size: 2.1rem;
+  color: var(--gold-light);
+  transform: translateY(2px);
+}
+.emblem__label--large { font-size: 3.4rem; }
+
+/* ==========================================================================
+   1. HERO
+   ========================================================================== */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--navy-deep);
+}
+.hero__media { position: absolute; inset: 0; z-index: 0; }
+.hero__video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0.55;
+}
+.hero__poster {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(232, 205, 133, 0.16), transparent 55%),
+    linear-gradient(160deg, var(--navy-deep) 0%, var(--navy) 55%, var(--navy-2) 100%);
+}
+.hero__overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(11,18,38,0.35) 0%, rgba(11,18,38,0.55) 55%, rgba(11,18,38,0.85) 100%);
+}
+
+.hero__content {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center;
+  padding: 6rem 1.5rem 4rem;
+  width: 100%;
+}
+
+.portrait {
+  position: relative;
+  width: 220px; height: 280px;
+  margin-bottom: 1.5rem;
+}
+.portrait__placeholder {
+  position: absolute;
+  inset: 8% 12%;
+  border-radius: 50%;
+  background: linear-gradient(150deg, #223258, #14213f);
+  display: grid; place-items: center;
+  color: var(--gold-light);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  border: 1px solid rgba(232,205,133,0.25);
+}
+.portrait__frame { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--gold-light); }
+.portrait__frame ellipse { fill: none; stroke: currentColor; stroke-width: 1.4; }
+.frame__sprig-top, .frame__sprig-bottom { fill: currentColor; }
+.frame__dot { fill: currentColor; }
+
+.hero__title {
+  font-family: var(--font-script);
+  font-size: clamp(3.4rem, 13vw, 5rem);
+  color: var(--gold-light);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+.hero__name {
+  font-family: var(--font-serif);
+  font-size: clamp(1.3rem, 4.5vw, 1.7rem);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--cream);
+  margin-bottom: 1.75rem;
+  padding-left: 0.35em; /* optically balance letter-spacing */
+}
+
+.date-badge {
+  display: flex; align-items: center; gap: 0.75rem;
+  margin-bottom: 3rem;
+}
+.date-badge__line { width: 28px; height: 1px; background: var(--gold); }
+.date-badge__text {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  color: var(--gold-light);
+  white-space: nowrap;
+}
+
+.hero__scroll {
+  position: relative;
+  width: 22px; height: 36px;
+  border: 1px solid var(--gold);
+  border-radius: 12px;
+  display: block;
+}
+.hero__scroll-dot {
+  position: absolute;
+  top: 6px; left: 50%;
+  width: 4px; height: 4px;
+  margin-left: -2px;
+  border-radius: 50%;
+  background: var(--gold-light);
+  animation: scrollDot 1.8s ease-in-out infinite;
+}
+@keyframes scrollDot {
+  0%   { transform: translateY(0); opacity: 1; }
+  70%  { transform: translateY(12px); opacity: 0; }
+  100% { transform: translateY(12px); opacity: 0; }
+}
+
+/* ==========================================================================
+   2. Imágenes decorativas
+   ========================================================================== */
+.decor {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding-top: clamp(3rem, 7vw, 5rem);
+  padding-bottom: clamp(3rem, 7vw, 5rem);
+}
+.decor__item { color: var(--gold-dark); width: 92px; }
+.decor__icon { width: 100%; height: auto; }
+.decor__icon path, .decor__icon ellipse {
+  fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round;
+}
+.decor__icon-accent { stroke: var(--gold); }
+
+/* ==========================================================================
+   3. Escucha mi canción
+   ========================================================================== */
+.cancion { padding-top: var(--section-pad-y); }
+
+.music-btn {
+  position: relative;
+  width: 92px; height: 92px;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  background: linear-gradient(160deg, var(--gold-light), var(--gold-dark));
+  color: var(--navy-deep);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+  margin-bottom: 1rem;
+}
+.music-btn__ring {
+  position: absolute; inset: -10px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: musicPulse 2.6s ease-out infinite;
+}
+@keyframes musicPulse {
+  0%   { transform: scale(0.9); opacity: 0.6; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+.music-btn__icon { width: 30px; height: 30px; fill: currentColor; }
+.music-btn__icon--pause { display: none; }
+.music-btn[aria-pressed="true"] .music-btn__icon--play { display: none; }
+.music-btn[aria-pressed="true"] .music-btn__icon--pause { display: block; }
+.music-btn[aria-pressed="true"] .music-btn__ring { animation-play-state: running; }
+.music-btn__hint {
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--cream-2);
+  opacity: 0.75;
+}
+
+/* ==========================================================================
+   4. Sobre con sello de cera
+   ========================================================================== */
+.sobre { padding-top: clamp(3rem, 7vw, 5rem); padding-bottom: clamp(3rem, 7vw, 5rem); }
+.sobre__wrap { width: 220px; color: var(--gold-dark); }
+.sobre__icon { width: 100%; height: auto; }
+.sobre__icon rect, .sobre__icon path { fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linejoin: round; }
+.sobre__seal circle { fill: var(--gold); stroke: var(--gold-dark); }
+.sobre__seal path { stroke: var(--cream); stroke-width: 1; fill: none; }
+.sobre__seal-text {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 15px;
+  fill: var(--cream);
+  stroke: none;
+}
+
+/* ==========================================================================
+   5. Agenda la fecha
+   ========================================================================== */
+.agenda__date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+.agenda__day-name {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.4rem, 5vw, 1.8rem);
+  color: var(--cream);
+  letter-spacing: 0.05em;
+}
+.agenda__day-num {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: clamp(6rem, 24vw, 9.5rem);
+  line-height: 0.9;
+  color: var(--gold-light);
+  margin: 0.1em 0;
+}
+.agenda__month {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: clamp(1rem, 3.5vw, 1.2rem);
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding-left: 0.5em;
+}
+.agenda__year {
+  font-family: var(--font-serif);
+  font-size: clamp(1.1rem, 4vw, 1.3rem);
+  color: var(--cream-2);
+  opacity: 0.8;
+  margin-top: 0.5rem;
+  letter-spacing: 0.15em;
+}
+
+/* ==========================================================================
+   6 / 7. Ceremonia & Recepción
+   ========================================================================== */
+.detail__photo {
+  position: relative;
+  width: min(320px, 100%);
+  aspect-ratio: 300 / 220;
+  margin-bottom: 1.75rem;
+}
+.detail__placeholder {
+  position: absolute; inset: 10px;
+  background: linear-gradient(150deg, var(--cream-2), #e4d7b4);
+  display: grid; place-items: center;
+  color: var(--gold-dark);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.4;
+  text-align: center;
+}
+.detail__frame { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--gold-dark); }
+.detail__frame rect { fill: none; stroke: currentColor; stroke-width: 1; }
+
+.detail__text {
+  font-family: var(--font-serif);
+  font-size: clamp(1.15rem, 3.8vw, 1.4rem);
+  line-height: 1.6;
+  color: var(--ink);
+  max-width: 26rem;
+}
+.detail__time {
+  margin-top: 0.75rem;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  color: var(--gold-dark);
+}
+
+/* ==========================================================================
+   8. Confirmar asistencia
+   ========================================================================== */
+.rsvp__hint {
+  max-width: 24rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--cream-2);
+  opacity: 0.85;
+  margin-bottom: 2rem;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.95rem 2rem;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+}
+.btn--gold {
+  background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
+  color: var(--navy-deep);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.btn--gold:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(0,0,0,0.4); }
+.btn__icon { width: 20px; height: 20px; fill: currentColor; }
+
+/* ==========================================================================
+   9. Mensaje de cierre
+   ========================================================================== */
+.cierre__invitacion {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.15rem, 4vw, 1.4rem);
+  line-height: 1.7;
+  color: var(--ink);
+  max-width: 34rem;
+  margin-bottom: 2.25rem;
+}
+.cierre__frase {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  letter-spacing: 0.01em;
+  color: var(--ink-soft);
+  max-width: 30rem;
+  margin-bottom: 2rem;
+}
+.cierre__enfasis {
+  font-family: var(--font-script);
+  font-size: clamp(2.6rem, 9vw, 3.6rem);
+  color: var(--gold-dark);
+}
+
+/* ==========================================================================
+   10. Emblema final
+   ========================================================================== */
+.emblem-final { padding-bottom: clamp(4rem, 10vw, 6rem); }
+.emblem-final__name {
+  font-family: var(--font-script);
+  font-size: clamp(1.8rem, 6vw, 2.4rem);
+  color: var(--cream);
+  margin-bottom: 0.35rem;
+}
+.emblem-final__date {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (min-width: 560px) {
+  .decor { gap: 2rem; }
+  .decor__item { width: 120px; }
+}
+
+@media (min-width: 860px) {
+  :root { --section-pad-y: 7.5rem; }
+  .portrait { width: 260px; height: 330px; }
+  .cierre__invitacion, .cierre__frase { font-size: 1.15rem; }
+}

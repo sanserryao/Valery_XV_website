@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Mis XV &mdash; Valery</title>
+<meta name="description" content="Invitación digital para la celebración de XV años de Valery. Sábado 10 de octubre de 2026.">
+<meta name="theme-color" content="#101a33">
+
+<!-- Fuentes: script elegante para el título/nombre, serif fina para acentos, sans ligera para texto -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ============================================================
+     1. HERO — foto principal, "Mis XV", nombre, fecha, video loop
+     ============================================================ -->
+<header class="hero" id="inicio">
+  <div class="hero__media" aria-hidden="true">
+    <!--
+      VIDEO REAL DE FONDO:
+      1) Coloca tu clip corto (silencioso, pocos MB, formato mp4/H.264) en:
+         assets/video/hero-loop.mp4
+      2) Descomenta la etiqueta <source> de abajo.
+      Mientras no exista el archivo, se ve el degradado marino de respaldo (poster).
+    -->
+    <!-- Opcional: agrega poster="assets/images/hero-poster.jpg" una vez que exista ese archivo -->
+    <video class="hero__video" autoplay muted loop playsinline>
+      <!-- <source src="assets/video/hero-loop.mp4" type="video/mp4"> -->
+    </video>
+    <div class="hero__poster" aria-hidden="true"></div>
+    <div class="hero__overlay" aria-hidden="true"></div>
+  </div>
+
+  <div class="hero__content">
+    <div class="emblem emblem--small reveal" data-reveal="fade">
+      <svg class="emblem__ring" viewBox="0 0 160 160" aria-hidden="true">
+        <circle cx="80" cy="80" r="62" />
+        <circle cx="80" cy="80" r="70" />
+        <path class="emblem__sprig" d="M80 8c-6 10-6 20 0 28 6-8 6-18 0-28z" />
+        <path class="emblem__sprig" d="M80 152c-6-10-6-20 0-28 6 8 6 18 0 28z" />
+      </svg>
+      <span class="emblem__label">XV</span>
+    </div>
+
+    <!-- FOTO PRINCIPAL: reemplaza .portrait__placeholder por
+         <img src="assets/images/hero-valery.jpg" alt="Valery, la festejada"> -->
+    <figure class="portrait reveal" data-reveal="up">
+      <div class="portrait__placeholder">
+        <span>Foto de<br>Valery</span>
+      </div>
+      <svg class="portrait__frame" viewBox="0 0 280 360" aria-hidden="true">
+        <ellipse cx="140" cy="180" rx="122" ry="162" />
+        <path class="frame__sprig-top" d="M140 8c-14 10-22 22-22 34 10-4 18-12 22-24 4 12 12 20 22 24 0-12-8-24-22-34z" />
+        <path class="frame__sprig-bottom" d="M140 352c-14-10-22-22-22-34 10 4 18 12 22 24 4-12 12-20 22-24 0 12-8 24-22 34z" />
+        <circle class="frame__dot" cx="18" cy="60" r="3" />
+        <circle class="frame__dot" cx="262" cy="60" r="3" />
+        <circle class="frame__dot" cx="18" cy="300" r="3" />
+        <circle class="frame__dot" cx="262" cy="300" r="3" />
+      </svg>
+    </figure>
+
+    <h1 class="hero__title reveal" data-reveal="up">Mis XV</h1>
+    <p class="hero__name reveal" data-reveal="up">Valery</p>
+
+    <div class="date-badge reveal" data-reveal="up">
+      <span class="date-badge__line"></span>
+      <span class="date-badge__text">Sábado 10 de Octubre de 2026</span>
+      <span class="date-badge__line"></span>
+    </div>
+
+    <a href="#cancion" class="hero__scroll" aria-label="Bajar a la siguiente sección">
+      <span class="hero__scroll-dot"></span>
+    </a>
+  </div>
+</header>
+
+<!-- ============================================================
+     2. IMÁGENES DECORATIVAS — vestido y sombrero charro (ilustración)
+     ============================================================ -->
+<section class="section section--cream decor" aria-hidden="true">
+  <div class="decor__item reveal" data-reveal="left">
+    <!-- Ilustración decorativa de vestido de quinceañera (arte de línea) -->
+    <svg class="decor__icon" viewBox="0 0 160 220" aria-hidden="true">
+      <path d="M80 10c-10 0-18 8-18 18 0 10 4 17-2 26-6 9-12 15-22 20-20 13-28 45-28 131h140c0-86-8-118-28-131-10-5-16-11-22-20-6-9-2-16-2-26 0-10-8-18-18-18z" />
+      <path class="decor__icon-accent" d="M48 94c10 8 22 12 32 12s22-4 32-12" />
+      <path class="decor__icon-accent" d="M68 28c4 6 8 9 12 9s8-3 12-9" />
+    </svg>
+  </div>
+  <div class="decor__divider" aria-hidden="true">
+    <svg viewBox="0 0 200 40"><path d="M0 20h70M130 20h70" /><circle cx="100" cy="20" r="5" /><path d="M90 20c0-8 6-14 10-14s10 6 10 14c0 8-6 14-10 14s-10-6-10-14z" /></svg>
+  </div>
+  <div class="decor__item reveal" data-reveal="right">
+    <!-- Ilustración decorativa de sombrero charro (arte de línea) -->
+    <svg class="decor__icon" viewBox="0 0 200 140" aria-hidden="true">
+      <ellipse cx="100" cy="102" rx="92" ry="17" />
+      <path d="M63 100c-4-38 10-70 37-74s41 36 37 74" />
+      <path class="decor__icon-accent" d="M66 86c10 8 24 12 34 12s24-4 34-12" />
+      <circle class="decor__icon-accent" cx="42" cy="102" r="2.5" />
+      <circle class="decor__icon-accent" cx="158" cy="102" r="2.5" />
+    </svg>
+  </div>
+</section>
+
+<!-- ============================================================
+     3. ESCUCHA MI CANCIÓN
+     ============================================================ -->
+<section class="section section--navy cancion" id="cancion">
+  <div class="ornament-divider reveal" data-reveal="fade" aria-hidden="true">
+    <svg viewBox="0 0 200 40"><path d="M0 20h70M130 20h70" /><circle cx="100" cy="20" r="5" /></svg>
+  </div>
+
+  <h2 class="section__title reveal" data-reveal="up">Escucha mi canción</h2>
+
+  <!--
+    AUDIO REAL: coloca tu archivo en assets/audio/cancion.mp3
+    (formato mp3, idealmente < 5 MB). El botón ya está conectado;
+    no necesitas tocar el JS.
+  -->
+  <audio id="song" preload="none" loop>
+    <source src="assets/audio/cancion.mp3" type="audio/mpeg">
+  </audio>
+
+  <button type="button" class="music-btn reveal" data-reveal="up" id="musicBtn" aria-pressed="false" aria-label="Reproducir canción">
+    <span class="music-btn__ring"></span>
+    <svg class="music-btn__icon music-btn__icon--play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
+    <svg class="music-btn__icon music-btn__icon--pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z" /></svg>
+  </button>
+  <p class="music-btn__hint reveal" data-reveal="up">Toca para reproducir</p>
+</section>
+
+<!-- ============================================================
+     4. SOBRE CON SELLO DE CERA (ornamental)
+     ============================================================ -->
+<section class="section section--cream sobre">
+  <div class="sobre__wrap reveal" data-reveal="up">
+    <svg class="sobre__icon" viewBox="0 0 240 170" aria-hidden="true">
+      <rect x="6" y="6" width="228" height="158" rx="4" />
+      <path d="M6 10l114 92L234 10" />
+      <path class="sobre__flap" d="M6 164l84-70M234 164l-84-70" />
+      <g class="sobre__seal">
+        <circle cx="120" cy="86" r="30" />
+        <path d="M120 66c-8 6-8 14 0 20-8-2-14-8-14-16M120 66c8 6 8 14 0 20 8-2 14-8 14-16" />
+        <text x="120" y="95" text-anchor="middle" class="sobre__seal-text">XV</text>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<!-- ============================================================
+     5. AGENDA LA FECHA
+     ============================================================ -->
+<section class="section section--navy agenda" id="agenda">
+  <div class="ornament-divider reveal" data-reveal="fade" aria-hidden="true">
+    <svg viewBox="0 0 200 40"><path d="M0 20h70M130 20h70" /><circle cx="100" cy="20" r="5" /></svg>
+  </div>
+  <h2 class="section__title reveal" data-reveal="up">Agenda la fecha</h2>
+
+  <div class="agenda__date">
+    <span class="agenda__day-name reveal" data-reveal="up">Sábado</span>
+    <span class="agenda__day-num reveal" data-reveal="scale">10</span>
+    <span class="agenda__month reveal" data-reveal="up">Octubre</span>
+    <span class="agenda__year reveal" data-reveal="up">2026</span>
+  </div>
+</section>
+
+<!-- ============================================================
+     6. CEREMONIA
+     ============================================================ -->
+<section class="section section--cream detail" id="ceremonia">
+  <div class="ornament-divider reveal" data-reveal="fade" aria-hidden="true">
+    <svg viewBox="0 0 200 40"><path d="M0 20h70M130 20h70" /><circle cx="100" cy="20" r="5" /></svg>
+  </div>
+  <h2 class="section__title section__title--dark reveal" data-reveal="up">Ceremonia</h2>
+
+  <!-- FOTO REAL DEL SANTUARIO: reemplaza .detail__placeholder por
+       <img src="assets/images/santuario.jpg" alt="Santuario Señor de las Misericordias"> -->
+  <figure class="detail__photo reveal" data-reveal="up">
+    <div class="detail__placeholder">
+      <span>Foto del<br>Santuario</span>
+    </div>
+    <svg class="detail__frame" viewBox="0 0 300 220" aria-hidden="true">
+      <rect x="6" y="6" width="288" height="208" rx="2" />
+      <rect x="14" y="14" width="272" height="192" rx="2" />
+    </svg>
+  </figure>
+
+  <p class="detail__text reveal" data-reveal="up">
+    Santuario Señor de las Misericordias<br>
+    San Pedro Actopan
+  </p>
+  <p class="detail__time reveal" data-reveal="up">11:45 a.m.</p>
+</section>
+
+<!-- ============================================================
+     7. RECEPCIÓN
+     ============================================================ -->
+<section class="section section--cream detail" id="recepcion">
+  <div class="ornament-divider reveal" data-reveal="fade" aria-hidden="true">
+    <svg viewBox="0 0 200 40"><path d="M0 20h70M130 20h70" /><circle cx="100" cy="20" r="5" /></svg>
+  </div>
+  <h2 class="section__title section__title--dark reveal" data-reveal="up">Recepción</h2>
+  <p class="detail__text reveal" data-reveal="up">
+    Avenida México Poniente, número 22<br>
+    San Gregorio Atlapulco
+  </p>
+</section>
+
+<!-- ============================================================
+     8. CONFIRMAR ASISTENCIA
+     ============================================================ -->
+<section class="section section--navy rsvp" id="confirmar">
+  <div class="ornament-divider reveal" data-reveal="fade" aria-hidden="true">
+    <svg viewBox="0 0 200 40"><path d="M0 20h70M130 20h70" /><circle cx="100" cy="20" r="5" /></svg>
+  </div>
+  <h2 class="section__title reveal" data-reveal="up">Confirma tu asistencia</h2>
+  <p class="rsvp__hint reveal" data-reveal="up">Nos encantará contar contigo, por favor confírmanos antes del evento.</p>
+
+  <!--
+    El destino de este botón se arma en js/main.js a partir de CONFIG.whatsappNumber
+    (arriba del archivo). Edita ese número y listo — no hay que tocar el HTML.
+  -->
+  <a href="#" id="rsvpBtn" class="btn btn--gold reveal" data-reveal="up" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" class="btn__icon" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.5l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.9 2.2 1 2.4c.1.2 1.7 2.6 4.1 3.6.6.2 1 .4 1.4.5.6.2 1.1.1 1.5.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z" /></svg>
+    <span>Confirmar por WhatsApp</span>
+  </a>
+</section>
+
+<!-- ============================================================
+     9. MENSAJE DE CIERRE — invitación formal + frase + "No Faltes"
+     ============================================================ -->
+<section class="section section--cream cierre">
+  <div class="ornament-divider reveal" data-reveal="fade" aria-hidden="true">
+    <svg viewBox="0 0 200 40"><path d="M0 20h70M130 20h70" /><circle cx="100" cy="20" r="5" /></svg>
+  </div>
+
+  <p class="cierre__invitacion reveal" data-reveal="up">
+    La familia Rodríguez Serralde tiene el honor de invitarlos a la celebración con motivo de los XV años de vida de nuestra hija, y al cambio del Niño Dios del pueblo.
+  </p>
+
+  <p class="cierre__frase reveal" data-reveal="up">
+    Los momentos especiales de la vida son únicos e irrepetibles, pero al compartirlos con personas queridas, se convierten en recuerdos inolvidables.
+  </p>
+
+  <p class="cierre__enfasis reveal" data-reveal="scale">No Faltes</p>
+</section>
+
+<!-- ============================================================
+     10. EMBLEMA FINAL — cierre simétrico con el hero
+     ============================================================ -->
+<footer class="section section--navy emblem-final">
+  <div class="emblem emblem--large reveal" data-reveal="fade">
+    <svg class="emblem__ring" viewBox="0 0 220 220" aria-hidden="true">
+      <circle cx="110" cy="110" r="86" />
+      <circle cx="110" cy="110" r="96" />
+      <path class="emblem__sprig" d="M110 12c-9 14-9 28 0 40 9-12 9-26 0-40z" />
+      <path class="emblem__sprig" d="M110 208c-9-14-9-28 0-40 9 12 9 26 0 40z" />
+      <!-- sombrero charro estilizado bajo el monograma, mismo motivo de la sección 2 -->
+      <g class="emblem__hat" transform="translate(110 150) scale(0.9)">
+        <ellipse cx="0" cy="6" rx="34" ry="8" />
+        <path d="M-20 6c0-12 8-22 20-22s20 10 20 22" />
+      </g>
+    </svg>
+    <span class="emblem__label emblem__label--large">XV</span>
+  </div>
+  <p class="emblem-final__name reveal" data-reveal="up">Valery</p>
+  <p class="emblem-final__date reveal" data-reveal="up">10 · Octubre · 2026</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
