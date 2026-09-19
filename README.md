@@ -1,6 +1,6 @@
 # Mis XV — Valery
 
-Invitación digital de una sola página para los XV años de Valery — **Sábado 10 de Octubre de 2026**. HTML/CSS/JS puro, sin frameworks ni build step.
+Invitación digital de una sola página para los XV años de Valery — **Sábado 10 de Octubre de 2026**. HTML/CSS/JS puro, sin frameworks ni build step. Diseño basado en la referencia visual del cliente: azul marino + dorado sobre crema, rosas marino, marco doble dorado, calendario y countdown en vivo.
 
 ## Cómo verlo
 
@@ -12,60 +12,91 @@ python -m http.server 5173
 
 y abrir `http://localhost:5173`.
 
-## Estructura
+## Estructura (orden real en `index.html`)
 
 ```
-index.html      → las 10 secciones, en orden: hero, decorativas, canción,
-                   sobre, agenda, ceremonia, recepción, confirmar, cierre, emblema final
-css/styles.css   → paleta (marino + dorado sobre crema), tipografía, ornamentos, animaciones
-js/main.js       → CONFIG editable (WhatsApp/Formspree), scroll reveal, botón de música
+index.html      → 1) hero (sombrero + "Valery" + escucha mi canción)
+                   2) sobre con mensaje
+                   3) invitación formal + foto bajo arco
+                   4) agenda la fecha (calendario + countdown en vivo)
+                   — separador de herradura —
+                   5) ceremonia + recepción (con botones "Ver ubicación")
+                   6) confirmar asistencia
+                   7) cierre + emblema final "XV"
+css/styles.css   → paleta, tipografía, rosas/ornamentos SVG, animaciones
+js/main.js       → CONFIG editable, countdown, scroll reveal, música, mapas, RSVP
 assets/images/   → fotos reales (ver "Reemplazar contenido")
 assets/audio/    → cancion.mp3
 assets/video/    → hero-loop.mp4
 ```
 
+**Nota sobre las rosas y florituras:** están hechas como ilustraciones vectoriales propias
+(un solo `<symbol>` de rosa reutilizado por todo el sitio, en `index.html`) inspiradas en los
+colores y la composición de la referencia — no son un calco pixel-por-pixel del clip art
+original, que es demasiado detallado para reproducir a mano en SVG. Si más adelante consigues
+el clip art real (o algo de un banco de imágenes con licencia), puedo intercambiar estos SVG
+por esos archivos sin tocar el resto del layout.
+
 ## Reemplazar contenido con archivos reales
 
 Todo está señalado con comentarios `<!-- -->` en `index.html` justo donde va cada archivo:
 
-1. **Foto principal (hero)** — agrega `assets/images/hero-valery.jpg` y cambia el bloque
-   `.portrait__placeholder` por un `<img>` (instrucción exacta en el comentario arriba de esa figura).
-2. **Foto del santuario (Ceremonia)** — mismo patrón, agrega `assets/images/santuario.jpg`
-   y reemplaza `.detail__placeholder`.
-3. **Video de fondo del hero** — agrega `assets/video/hero-loop.mp4` (corto, silencioso, pocos MB)
-   y descomenta la línea `<source>` dentro de `.hero__video`. Mientras no lo agregues, se ve
-   el degradado marino/dorado de respaldo.
-4. **Canción** — agrega `assets/audio/cancion.mp3`. El botón ya está conectado, no hay que tocar JS.
-5. **Vestido, sombrero charro, sobre con sello y emblema final** son ilustraciones vectoriales
-   (SVG inline en línea dorada) hechas para el sitio — no requieren fotos.
+1. **Foto de Valery bajo el arco floral** (sección 3) — agrega `assets/images/valery-arco.jpg`
+   y reemplaza el bloque `.arch-photo__placeholder` por un `<img>` (instrucción exacta en el
+   comentario arriba de esa figura).
+2. **Foto del santuario** (Ceremonia) — agrega `assets/images/santuario.jpg`, mismo patrón con
+   `.rect-photo__placeholder`.
+3. **Foto del lugar de recepción** — agrega `assets/images/recepcion.jpg`, mismo patrón.
+4. **Video de fondo del hero** — agrega `assets/video/hero-loop.mp4` (corto, silencioso, pocos MB)
+   y descomenta la línea `<source>` dentro de `.hero__video`. Mientras no lo agregues, se ve el
+   degradado crema/dorado de respaldo.
+5. **Canción** — agrega `assets/audio/cancion.mp3`. El botón ya está conectado a doble clic
+   (igual que la referencia), no hay que tocar el JS.
 
-## Confirmar asistencia (RSVP)
+## Countdown y calendario
+
+El countdown (`Días : Horas : Minutos : Segundos`) es JavaScript puro (`setupCountdown` en
+`js/main.js`), calculado en vivo cada segundo contra `CONFIG.eventDateTime`. El calendario de
+octubre 2026 está escrito directo en el HTML (el 10 es sábado — ya verificado), así que no
+depende de JS y nunca se puede desincronizar del countdown.
+
+Si cambias la fecha del evento, edita **una sola vez** `CONFIG.eventDateTime` en `js/main.js`
+(zona horaria Ciudad de México, UTC-6 fijo) — el countdown se ajusta solo. Si además cambia el
+mes/año, tendrías que regenerar a mano la grilla `.calendar__grid` en `index.html`.
+
+## Confirmar asistencia (RSVP) y ubicaciones
 
 Edita el bloque `CONFIG` al inicio de `js/main.js`:
 
 ```js
 const CONFIG = {
   quinceanera: "Valery",
+  eventDateTime: new Date("2026-10-10T11:45:00-06:00"),
+  ceremonyAddress: "Santuario Señor de las Misericordias, San Pedro Actopan, Ciudad de México",
+  receptionAddress: "Avenida México Poniente 22, San Gregorio Atlapulco, Ciudad de México",
   rsvpMethod: "whatsapp",           // "whatsapp" o "formspree"
   whatsappNumber: "5215512345678",  // EDITA: lada país + lada local, sin +, sin espacios
   formspreeEndpoint: "",            // solo si usas rsvpMethod = "formspree"
 };
 ```
 
-- **WhatsApp (por defecto):** el botón abre `wa.me` con el mensaje "Hola, confirmo mi asistencia
-  a los XV años de Valery" ya escrito. Solo cambia `whatsappNumber` por el número real.
+- Los botones **"Ver ubicación"** arman un link real de Google Maps a partir de
+  `ceremonyAddress` / `receptionAddress` (búsqueda por dirección). Si tienes el link exacto de
+  Google Maps del lugar (con coordenadas o Place ID), puedes pegarlo directo en
+  `setupMapLinks()` en vez de la dirección de texto, para mayor precisión.
+- **Confirmar asistencia (WhatsApp, por defecto):** abre `wa.me` con el mensaje "Hola, confirmo
+  mi asistencia a los XV años de Valery" ya escrito. Solo cambia `whatsappNumber` por el número real.
 - **Formspree:** crea un formulario en [formspree.io](https://formspree.io), pon
   `rsvpMethod: "formspree"` y pega tu endpoint en `formspreeEndpoint`.
 
-## Correcciones respecto al sitio de referencia
+## Correcciones de contenido aplicadas (respecto al sitio/diseño original)
 
-Este sitio se construyó desde cero (no se copió código del original) corrigiendo:
-
-- **Fecha consistente:** el original mostraba "10 Ocubre 2026" (typo) en el hero y
-  "Sábado 22 Octubre 2026" en la agenda — dos fechas distintas. Aquí la fecha es una sola
-  en todo el sitio: **Sábado 10 de Octubre de 2026**.
+- **Fecha consistente:** el calendario marcaba el 10 pero el texto decía "Sábado 22" — dos
+  fechas distintas. Aquí la fecha es una sola en todo el sitio, calendario incluido:
+  **Sábado 10 de Octubre de 2026** (verificado: el 10 de octubre de 2026 sí es sábado).
 - **Ubicación de la recepción:** "San Gregario Atlapulco" → "San Gregorio Atlapulco".
-- **Texto de invitación:** "LA FAM: Rodriguez Serralde" → "La familia Rodríguez Serralde".
+- **Texto de invitación:** "LA FAM: Rodriguez Serralde" → "La familia Rodríguez Serralde"
+  (con el acento correcto).
 - **Sin texto duplicado:** el original repetía casi todos los párrafos dos veces en el HTML.
   Aquí cada texto existe una sola vez.
 - **Botón de confirmación funcional:** apunta a un link de WhatsApp real (editable), no a un
