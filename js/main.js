@@ -87,7 +87,7 @@ function setupScrollReveal() {
 }
 
 /* --------------------------------------------------------------------------
-   Botón "Escucha mi canción" — doble clic reproduce / pausa
+   Botón "Escucha mi canción" — un solo clic/tap reproduce o pausa
    -------------------------------------------------------------------------- */
 function setupMusicButton() {
   const btn = document.getElementById("musicBtn");
@@ -106,7 +106,7 @@ function setupMusicButton() {
     }
   };
 
-  btn.addEventListener("dblclick", toggle);
+  btn.addEventListener("click", toggle);
   btn.addEventListener("keydown", (e) => {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
@@ -116,11 +116,11 @@ function setupMusicButton() {
 
   audio.addEventListener("play", () => {
     btn.setAttribute("aria-pressed", "true");
-    btn.setAttribute("aria-label", "Doble clic para pausar la canción");
+    btn.setAttribute("aria-label", "Pausar la canción");
   });
   audio.addEventListener("pause", () => {
     btn.setAttribute("aria-pressed", "false");
-    btn.setAttribute("aria-label", "Doble clic para reproducir la canción");
+    btn.setAttribute("aria-label", "Reproducir la canción");
   });
 }
 

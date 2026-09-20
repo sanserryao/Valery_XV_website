@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pinyon+Script&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/styles.css?v=15">
+<link rel="stylesheet" href="css/styles.css?v=16">
 </head>
 <body>
 
@@ -61,13 +61,15 @@
 
   <!--
     AUDIO REAL: coloca tu archivo en assets/audio/cancion.mp3 (mp3, idealmente < 5 MB).
-    El botón ya está conectado a doble clic; no hay que tocar el JS.
+    preload="auto" para que el navegador la vaya descargando de fondo apenas
+    carga la página, y así no tarde al presionar play. El botón ya está
+    conectado a un solo clic/tap; no hay que tocar el JS.
   -->
-  <audio id="song" preload="none" loop>
+  <audio id="song" preload="auto" loop>
     <source src="assets/audio/cancion.mp3" type="audio/mpeg">
   </audio>
 
-  <button type="button" class="play-btn reveal" data-reveal="up" id="musicBtn" aria-pressed="false" aria-label="Doble clic para reproducir la canción">
+  <button type="button" class="play-btn reveal" data-reveal="up" id="musicBtn" aria-pressed="false" aria-label="Reproducir la canción">
     <svg class="play-btn__icon play-btn__icon--play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
     <svg class="play-btn__icon play-btn__icon--pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z" /></svg>
   </button>
