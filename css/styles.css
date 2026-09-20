@@ -209,7 +209,7 @@ body {
 .hat-wrap .rose-corner--left { top: 50%; left: -20px; transform: translateY(-50%); }
 .hat-wrap .rose-corner--right { top: 50%; right: -20px; transform: translateY(-50%) scaleX(-1); }
 
-.hat-img { position: relative; z-index: 1; width: min(210px, 72%); margin: 0 auto 6px; }
+.hat-img { position: relative; z-index: 1; width: min(175px, 60%); margin: 0 auto 6px; }
 
 /* Texto de introducción (Niño Dios / cambio de mayordomos) reutiliza el
    estilo de .formal-label / .formal-text pero necesita separación antes

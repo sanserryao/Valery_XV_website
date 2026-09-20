@@ -95,6 +95,16 @@ assets/images/vendor/frame-{formal,ceremonia,recepcion,cierre}-{tl,tr,bl,br}.png
 Si quieres volver a generar los recortes (por ejemplo con fotos nuevas), el recorte usado fue
 un cuadro de 520×520px en cada esquina de la imagen fuente de 1125×2000px.
 
+**Excepción — Ceremonia sí usa 2 esquinas espejeadas.** La foto fuente de Ceremonia (10.webp)
+solo tiene rosas dibujadas en dos esquinas diagonales (arriba-derecha y abajo-izquierda); las
+otras dos esquinas de la foto están vacías y además tenían una línea dorada del propio marco
+del archivo original, que se colaba en el recorte y se veía como un marco "cortado a la mitad".
+Por eso `frame-ceremonia-tl.png` y `frame-ceremonia-br.png` NO son recortes directos — son
+`frame-ceremonia-tr.png` y `frame-ceremonia-bl.png` espejeados horizontalmente
+(`ImageOps.mirror` de PIL), para que las 4 esquinas de esa tarjeta se vean completas y
+parejas. Si cambias la foto fuente de Ceremonia, revisa si el problema persiste antes de
+repetir el espejeado.
+
 **Ojo con el padding de estas tarjetas:** el marco (`.frame-corner`) mide 78–96px. El
 `padding-top`/`padding-bottom` de `.formal-card`, `.detail-card` y `.cierre-section` está
 puesto a propósito por encima de eso (~92–108px) para que el texto nunca quede debajo de las
@@ -108,13 +118,12 @@ rosas. Si cambias el tamaño de `.frame-corner`, ajusta ese padding en la misma 
 | `rose-single.png` | rosas que flanquean el sobre (hero) |
 | `envelope-seal.png` | sobre con sello de cera en forma de herradura |
 | `frame-formal-*.png`, `frame-ceremonia-*.png`, `frame-recepcion-*.png`, `frame-cierre-*.png` | marcos de rosas por esquina (ver arriba) |
-| `corner-flourish-2.png` | florituras de esquina (solo Agenda, calendario) |
 | `nino-dios-arco.png` | foto real del Niño Dios bajo el arco floral |
 | `herradura.png` | separador de herradura entre Agenda y Ceremonia (sobre fondo **crema** — el dibujo es marino, se pierde sobre fondo oscuro) |
 | `santuario.png` | foto real del Santuario Señor de las Misericordias |
 | `recepcion.png` | foto real del lugar de recepción |
 | `emblema-xv.png` | emblema circular "XV" de cierre |
-| `valery-wordmark.png`, `corner-flourish-1.png`, `rose-garland.png`, `botas-charras.png`, `boton-ubicacion.png` | ya no se usan en este layout (se quedan en la carpeta por si los quieres reincorporar) |
+| `valery-wordmark.png`, `corner-flourish-1.png`, `corner-flourish-2.png`, `rose-garland.png`, `botas-charras.png`, `boton-ubicacion.png` | ya no se usan en este layout (se quedan en la carpeta por si los quieres reincorporar) |
 
 **No se usa** la imagen de calendario del sitio original (genérica, de "Octubre **2025**" —
 año equivocado). El calendario es una grilla real de octubre 2026 en HTML/CSS, con el 10
