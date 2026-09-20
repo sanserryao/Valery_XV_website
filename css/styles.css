@@ -288,19 +288,17 @@ body {
 .envelope__img { width: 100%; }
 .envelope__text {
   position: absolute;
-  top: 26%;
+  top: 28%;
   left: 50%;
   transform: translateX(-50%);
-  width: 68%;
+  width: 59%;
   font-family: var(--font-serif);
-  font-size: 0.76rem;
-  line-height: 1.42;
+  font-weight: 600;
+  font-size: 0.68rem;
+  line-height: 1.32;
   color: var(--navy);
 }
-.envelope__text em { font-style: italic; color: var(--gold-text); }
-@media (min-width: 420px) {
-  .envelope__text { font-size: 0.86rem; }
-}
+.envelope__text em { font-style: italic; font-weight: 500; color: var(--gold-text); }
 /* Firma "Valery" escrita dentro del papel del sobre, justo debajo del mensaje —
    no como bloque aparte flotando con espacio vacío alrededor. Se ancla desde
    abajo (junto al sello) para no chocar con el mensaje aunque cambie de largo. */
