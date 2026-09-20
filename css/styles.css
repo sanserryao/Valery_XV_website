@@ -85,6 +85,17 @@ body {
 .corner-orn--bl { bottom: 4px; left: 4px; transform: scaleY(-1); }
 .corner-orn--br { bottom: 4px; right: 4px; transform: scale(-1, -1); }
 
+/* Esquinas de marco (fotos de rosas reales recortadas por esquina — cada una
+   ya viene orientada para su propia esquina, sin espejeo). */
+.frame-corner { position: absolute; width: 78px; pointer-events: none; z-index: 2; }
+.frame-corner--tl { top: 0; left: 0; }
+.frame-corner--tr { top: 0; right: 0; }
+.frame-corner--bl { bottom: 0; left: 0; }
+.frame-corner--br { bottom: 0; right: 0; }
+@media (min-width: 420px) {
+  .frame-corner { width: 96px; }
+}
+
 /* Pequeño diamante dorado (acento superior/inferior de las tarjetas) */
 .diamond-mark { position: absolute; left: 50%; transform: translateX(-50%); width: 13px; height: 13px; z-index: 2; }
 .diamond-mark svg { width: 100%; height: 100%; }
@@ -96,34 +107,22 @@ body {
 .divider-orn__line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, currentColor, transparent); }
 .divider-orn__diamond { width: 9px; height: 9px; background: currentColor; transform: rotate(45deg); flex-shrink: 0; }
 
-/* Tarjeta marino con doble borde interior + esquinas (Invitación, Ceremonia/Recepción) */
-.card-navy {
+/* Tarjeta crema con marco de rosas reales en las 4 esquinas
+   (Invitación formal, Ceremonia, Recepción) */
+.card-framed {
   position: relative;
   width: 100%;
   max-width: 420px;
   margin: 0 auto;
-  background: var(--navy);
+  background: var(--cream-card);
   border: 2px solid var(--gold);
-  padding: clamp(30px, 9vw, 42px) clamp(26px, 7.5vw, 36px) clamp(24px, 7vw, 34px);
+  padding: clamp(30px, 9vw, 42px) clamp(32px, 9vw, 42px) clamp(24px, 7vw, 34px);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   overflow: hidden;
-}
-.card-navy::before {
-  content: "";
-  position: absolute;
-  inset: 5px;
-  border: 1px solid rgba(227,196,99,0.55);
-  pointer-events: none;
-}
-.card-navy::after {
-  content: "";
-  position: absolute;
-  inset: 9px;
-  border: 1px solid rgba(227,196,99,0.22);
-  pointer-events: none;
+  box-shadow: 0 14px 32px rgba(11,31,63,0.12);
 }
 
 /* Doble marco de foto (marino + crema) usado en Invitación y Ceremonia/Recepción */
@@ -157,8 +156,6 @@ body {
 .pill__icon { width: 15px; height: 15px; flex-shrink: 0; }
 .pill--outline { background: var(--navy-card); border: 1px solid var(--gold); color: var(--gold); }
 .pill--outline:hover { background: #1c3d6e; }
-.pill--solid { background: var(--gold); border: 1px solid var(--gold-script); color: var(--navy); font-weight: 600; }
-.pill--solid:hover { filter: brightness(1.05); }
 .pill--square { border-radius: 2px; }
 
 /* ==========================================================================
@@ -316,7 +313,7 @@ body {
   overflow: hidden;
 }
 .formal-section .rose-corner { top: 40%; z-index: 0; }
-.formal-card { padding-top: clamp(44px, 10vw, 56px); }
+.formal-card { padding-top: clamp(92px, 22vw, 108px); padding-bottom: clamp(92px, 22vw, 108px); }
 
 .formal-label {
   position: relative; z-index: 1;
@@ -324,7 +321,7 @@ body {
   font-size: 10.5px;
   letter-spacing: 0.28em;
   text-indent: 0.28em;
-  color: var(--gold);
+  color: var(--gold-text);
   margin-bottom: 16px;
 }
 .formal-text {
@@ -332,15 +329,15 @@ body {
   font-family: var(--font-serif);
   font-size: clamp(1.05rem, 4vw, 1.25rem);
   line-height: 1.55;
-  color: var(--white);
+  color: var(--navy);
   max-width: 30rem;
 }
 .formal-text .script-name {
   font-family: var(--font-script);
   font-size: 1.7em;
-  color: var(--gold);
+  color: var(--gold-script);
 }
-.formal-text em { font-style: italic; color: var(--gold); }
+.formal-text em { font-style: italic; color: var(--gold-text); }
 
 .formal-card .divider-orn { margin: 20px 0; color: var(--gold); }
 
@@ -352,7 +349,7 @@ body {
   font-family: var(--font-serif);
   font-style: italic;
   font-size: 0.95rem;
-  color: var(--muted-on-navy);
+  color: var(--navy-card);
 }
 
 /* ==========================================================================
@@ -490,7 +487,7 @@ body {
    Separador — herradura ornamental (Valery.htm)
    ========================================================================== */
 .horseshoe-banner {
-  background: var(--navy);
+  background: var(--cream);
   display: flex;
   justify-content: center;
   padding: clamp(24px, 6vw, 34px) 0;
@@ -503,7 +500,7 @@ body {
 .detail-section {
   padding: clamp(20px, 5vw, 28px) var(--page-pad) clamp(40px, 9vw, 56px);
 }
-.detail-card { padding-top: clamp(30px, 7vw, 40px); }
+.detail-card { padding-top: clamp(92px, 22vw, 108px); padding-bottom: clamp(92px, 22vw, 108px); }
 .detail-card--recepcion { margin-top: clamp(28px, 7vw, 40px); }
 
 .detail-title {
@@ -513,7 +510,7 @@ body {
   letter-spacing: 0.3em;
   text-indent: 0.3em;
   font-weight: 600;
-  color: var(--gold);
+  color: var(--gold-text);
   margin-top: 10px;
 }
 .detail-place {
@@ -522,14 +519,14 @@ body {
   font-family: var(--font-script);
   font-size: clamp(1.7rem, 7vw, 2.1rem);
   line-height: 1.18;
-  color: var(--white);
+  color: var(--gold-script);
 }
 .detail-sub {
   position: relative; z-index: 1;
   margin-top: 6px;
   font-family: var(--font-serif);
   font-size: 1rem;
-  color: var(--muted-on-navy);
+  color: var(--navy-card);
 }
 .detail-address {
   position: relative; z-index: 1;
@@ -539,11 +536,11 @@ body {
   font-family: var(--font-serif);
   font-size: 1.2rem;
   line-height: 1.45;
-  color: var(--white);
+  color: var(--navy);
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
-.detail-address .muted { color: var(--muted-on-navy); }
+.detail-address .muted { color: var(--navy-card); }
 
 .detail-card .photo-framed { margin-top: 13px; }
 .detail-card .pill { margin-top: 13px; }
@@ -555,19 +552,7 @@ body {
   font-size: 1.25rem;
   font-weight: 600;
   letter-spacing: 0.06em;
-  color: var(--white);
-}
-
-.detail-card .divider-orn { margin: 18px 0 4px; color: var(--gold); }
-
-.rsvp-block { margin-top: 30px; }
-.rsvp-block__label {
-  position: relative; z-index: 1;
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 1rem;
-  color: var(--muted-on-navy);
-  margin-bottom: 14px;
+  color: var(--navy);
 }
 
 /* ==========================================================================
@@ -575,7 +560,7 @@ body {
    ========================================================================== */
 .cierre-section {
   position: relative;
-  padding: clamp(48px, 11vw, 64px) clamp(30px, 8vw, 48px) clamp(36px, 8vw, 50px);
+  padding: clamp(92px, 22vw, 108px) clamp(30px, 8vw, 48px) clamp(92px, 22vw, 108px);
   display: flex;
   flex-direction: column;
   align-items: center;

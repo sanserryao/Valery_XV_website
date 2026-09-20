@@ -1,6 +1,6 @@
 /* ==========================================================================
    Mis XV — Valery
-   Configuración editable + interacciones (scroll reveal, música, countdown, RSVP)
+   Configuración editable + interacciones (scroll reveal, música, countdown, mapas)
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -16,23 +16,11 @@ const CONFIG = {
   // Direcciones reales — se usan para armar los botones "Ver ubicación" (Google Maps).
   ceremonyAddress: "Santuario Señor de las Misericordias, San Pedro Actopan, Milpa Alta, Ciudad de México",
   receptionAddress: "Avenida México Poniente 22, San Gregorio Atlapulco, Xochimilco, Ciudad de México",
-
-  // Método de confirmación: "whatsapp" (recomendado, no necesita servidor)
-  // o "formspree" (requiere crear un formulario en https://formspree.io).
-  rsvpMethod: "whatsapp",
-
-  // EDITA este número con lada de país + lada local, sin "+", sin espacios ni guiones.
-  // Ejemplo México: 521 5512345678
-  whatsappNumber: "5215512345678",
-
-  // Endpoint de Formspree, solo se usa si rsvpMethod = "formspree".
-  formspreeEndpoint: "",
 };
 
 document.addEventListener("DOMContentLoaded", () => {
   setupScrollReveal();
   setupMusicButton();
-  setupRsvpButton();
   setupMapLinks();
   setupCountdown();
   setupHeroVideo();
@@ -151,22 +139,6 @@ function setupMapLinks() {
   if (receptionLink) receptionLink.href = mapsUrl(CONFIG.receptionAddress);
 }
 
-/* --------------------------------------------------------------------------
-   Botón "Confirmar asistencia" — arma el link de WhatsApp (o Formspree)
-   -------------------------------------------------------------------------- */
-function setupRsvpButton() {
-  const link = document.getElementById("rsvpBtn");
-  if (!link) return;
-
-  if (CONFIG.rsvpMethod === "formspree" && CONFIG.formspreeEndpoint) {
-    link.href = CONFIG.formspreeEndpoint;
-    link.removeAttribute("target");
-    return;
-  }
-
-  const message = `Hola, confirmo mi asistencia a los XV años de ${CONFIG.quinceanera}`;
-  link.href = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
-}
 
 /* --------------------------------------------------------------------------
    Botón "Guardar en mi calendario" — arma un link de Google Calendar con el
