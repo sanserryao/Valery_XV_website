@@ -128,9 +128,8 @@ rosas. Si cambias el tamaño de `.frame-corner`, ajusta ese padding en la misma 
 | `nino-dios-arco.png` | foto real del Niño Dios bajo el arco floral |
 | `herradura.png` | separador de herradura entre Agenda y Ceremonia (sobre fondo **crema** — el dibujo es marino, se pierde sobre fondo oscuro) |
 | `santuario.png` | foto real del Santuario Señor de las Misericordias |
-| `recepcion.png` | foto real del lugar de recepción |
 | `emblema-xv.png` | emblema circular "XV" de cierre |
-| `valery-wordmark.png`, `corner-flourish-1.png`, `corner-flourish-2.png`, `rose-garland.png`, `botas-charras.png`, `boton-ubicacion.png` | ya no se usan en este layout (se quedan en la carpeta por si los quieres reincorporar) |
+| `valery-wordmark.png`, `corner-flourish-1.png`, `corner-flourish-2.png`, `rose-garland.png`, `botas-charras.png`, `boton-ubicacion.png`, `recepcion.png` | ya no se usan en este layout (se quedan en la carpeta por si los quieres reincorporar) |
 
 **No se usa** la imagen de calendario del sitio original (genérica, de "Octubre **2025**" —
 año equivocado). El calendario es una grilla real de octubre 2026 en HTML/CSS, con el 10
