@@ -5,162 +5,169 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Mis XV &mdash; Valery</title>
 <meta name="description" content="Invitación digital para la celebración de XV años de Valery. Sábado 10 de octubre de 2026.">
-<meta name="theme-color" content="#0f2342">
+<meta name="theme-color" content="#0B1F3F">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pinyon+Script&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<div class="page-wrap">
 
-<!-- Marco doble dorado alrededor de todo el sitio (recorre todo el documento, no solo la pantalla) -->
-<div class="page-frame" aria-hidden="true"></div>
+<h1 class="sr-only">Mis XV &mdash; Valery</h1>
 
 <!-- ============================================================
-     1. HERO — video con "Mis XV" + fecha
+     1. HERO — video con marco dorado inciso, sin texto encima
      ============================================================ -->
 <header class="hero" id="inicio">
   <div class="hero__media" aria-hidden="true">
-    <div class="hero__poster" aria-hidden="true"></div>
+    <div class="hero__poster"></div>
     <video class="hero__video" id="heroVideo" autoplay muted loop playsinline preload="auto">
       <source src="assets/video/hero-loop.mp4" type="video/mp4">
     </video>
-    <div class="hero__overlay" aria-hidden="true"></div>
+    <div class="hero__scrim"></div>
   </div>
-
-  <div class="hero__content">
-    <h1 class="hero__title reveal" data-reveal="fade">Mis XV</h1>
-    <span class="hero__title-rule" aria-hidden="true"></span>
-    <p class="hero__date reveal" data-reveal="fade">Sábado 10 de Octubre de 2026</p>
-  </div>
+  <div class="hero__frame" aria-hidden="true"></div>
+  <svg class="hero__chevrons" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+    <path d="M6 9l6 5 6-5M6 15l6 5 6-5" />
+  </svg>
 </header>
 
 <!-- ============================================================
      2. TARJETA — sombrero, "Valery", escucha mi canción, sobre
      ============================================================ -->
-<section class="section section--navy invite-section">
-  <div class="invite-wrap">
-    <div class="invite-card">
-      <img class="rose-corner rose-corner--tl reveal" data-reveal="left" src="assets/images/vendor/rose-single.png" width="800" height="800" alt="" aria-hidden="true">
-      <img class="rose-corner rose-corner--tr reveal" data-reveal="right" src="assets/images/vendor/rose-single.png" width="800" height="800" alt="" aria-hidden="true">
-      <img class="rose-corner rose-corner--bl reveal" data-reveal="left" src="assets/images/vendor/rose-single.png" width="800" height="800" alt="" aria-hidden="true">
-      <img class="rose-corner rose-corner--br reveal" data-reveal="right" src="assets/images/vendor/rose-single.png" width="800" height="800" alt="" aria-hidden="true">
+<section class="invite-section">
+  <img class="rose-corner rose-corner--left reveal" data-reveal="left" src="assets/images/vendor/rose-single.png" width="800" height="800" alt="" aria-hidden="true">
+  <img class="rose-corner rose-corner--right reveal" data-reveal="right" src="assets/images/vendor/rose-single.png" width="800" height="800" alt="" aria-hidden="true">
 
-      <img class="hat-img reveal" data-reveal="up" src="assets/images/vendor/sombrero.png" width="800" height="800" alt="Sombrero charro">
+  <img class="hat-img reveal" data-reveal="up" src="assets/images/vendor/sombrero.png" width="800" height="800" alt="Sombrero charro">
 
-      <img class="name-img reveal" data-reveal="up" src="assets/images/vendor/valery-wordmark.png" width="798" height="266" alt="Valery">
+  <p class="name-script reveal" data-reveal="up">Valery</p>
+  <p class="mis-xv-label reveal" data-reveal="up">MIS XV AÑOS</p>
+  <p class="hero-date reveal" data-reveal="up">Sábado 10 de octubre de 2026</p>
 
-      <h2 class="hero__music-title reveal" data-reveal="up">Escucha mi canción</h2>
-      <p class="hero__music-hint reveal" data-reveal="up">(Da doble clic)</p>
+  <p class="music-label reveal" data-reveal="up">Escucha mi canción</p>
+  <p class="music-sub reveal" data-reveal="up">Un vestido de besos</p>
 
-      <!--
-        AUDIO REAL: coloca tu archivo en assets/audio/cancion.mp3 (mp3, idealmente < 5 MB).
-        El botón ya está conectado a doble clic; no hay que tocar el JS.
-      -->
-      <audio id="song" preload="none" loop>
-        <source src="assets/audio/cancion.mp3" type="audio/mpeg">
-      </audio>
+  <!--
+    AUDIO REAL: coloca tu archivo en assets/audio/cancion.mp3 (mp3, idealmente < 5 MB).
+    El botón ya está conectado a doble clic; no hay que tocar el JS.
+  -->
+  <audio id="song" preload="none" loop>
+    <source src="assets/audio/cancion.mp3" type="audio/mpeg">
+  </audio>
 
-      <button type="button" class="play-btn reveal" data-reveal="up" id="musicBtn" aria-pressed="false" aria-label="Doble clic para reproducir la canción">
-        <svg class="play-btn__icon play-btn__icon--play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
-        <svg class="play-btn__icon play-btn__icon--pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z" /></svg>
-      </button>
+  <button type="button" class="play-btn reveal" data-reveal="up" id="musicBtn" aria-pressed="false" aria-label="Doble clic para reproducir la canción">
+    <svg class="play-btn__icon play-btn__icon--play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
+    <svg class="play-btn__icon play-btn__icon--pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z" /></svg>
+  </button>
 
-      <div class="diamond-divider reveal" data-reveal="fade" aria-hidden="true">
-        <span></span><i></i><span></span>
-      </div>
-
-      <figure class="envelope reveal" data-reveal="up">
-        <img class="envelope__img" src="assets/images/vendor/envelope-seal.png" width="1122" height="1402" alt="Sobre con sello de cera en forma de herradura">
-        <figcaption class="envelope__text">
-          Con el corazón lleno de ilusiones y rodeada del amor de mis padres y familia, quiero compartir contigo la alegría de celebrar mis &ldquo;XV años&rdquo; Tu presencia es especial para mí en este día.
-        </figcaption>
-      </figure>
-    </div>
+  <div class="divider-orn reveal" data-reveal="fade" aria-hidden="true">
+    <span class="divider-orn__line"></span><i class="divider-orn__diamond"></i><span class="divider-orn__line"></span>
   </div>
+
+  <figure class="envelope reveal" data-reveal="up">
+    <img class="envelope__img" src="assets/images/vendor/envelope-seal.png" width="1122" height="1402" alt="Sobre con sello de cera en forma de herradura">
+    <figcaption class="envelope__text">
+      Con el corazón lleno de ilusiones y rodeada del amor de mis padres y familia, quiero compartir contigo la alegría de celebrar mis <em>XV años</em>. Tu presencia es especial para mí en este día.
+    </figcaption>
+  </figure>
+  <p class="envelope__signature reveal" data-reveal="fade">Valery</p>
 </section>
 
 <!-- ============================================================
      3. INVITACIÓN FORMAL + FOTO
      ============================================================ -->
-<section class="section section--navy formal-section">
-  <div class="formal-frame">
-    <img class="corner-img corner-img--tl" src="assets/images/vendor/corner-flourish-1.png" width="800" height="800" alt="" aria-hidden="true">
-    <img class="corner-img corner-img--tr" src="assets/images/vendor/corner-flourish-1.png" width="800" height="800" alt="" aria-hidden="true">
-    <img class="corner-img corner-img--bl" src="assets/images/vendor/corner-flourish-1.png" width="800" height="800" alt="" aria-hidden="true">
-    <img class="corner-img corner-img--br" src="assets/images/vendor/corner-flourish-1.png" width="800" height="800" alt="" aria-hidden="true">
+<section class="formal-section">
+  <div class="card-navy formal-card reveal" data-reveal="up">
+    <img class="corner-orn corner-orn--tl" src="assets/images/vendor/corner-flourish-1.png" width="800" height="800" alt="" aria-hidden="true">
+    <img class="corner-orn corner-orn--tr" src="assets/images/vendor/corner-flourish-1.png" width="800" height="800" alt="" aria-hidden="true">
+    <img class="corner-orn corner-orn--bl" src="assets/images/vendor/corner-flourish-1.png" width="800" height="800" alt="" aria-hidden="true">
+    <img class="corner-orn corner-orn--br" src="assets/images/vendor/corner-flourish-1.png" width="800" height="800" alt="" aria-hidden="true">
+    <div class="diamond-mark diamond-mark--top" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 1l3.4 7.6L23 12l-7.6 3.4L12 23l-3.4-7.6L1 12l7.6-3.4Z" fill="#C9A227"/></svg></div>
+    <div class="diamond-mark diamond-mark--bottom" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 1l3.4 7.6L23 12l-7.6 3.4L12 23l-3.4-7.6L1 12l7.6-3.4Z" fill="#C9A227"/></svg></div>
 
-    <p class="formal-frame__text reveal" data-reveal="up">
-      La familia Rodríguez Serralde tiene el honor de invitarlos a la celebración con motivo de los XV años de vida de nuestra hija, y al cambio del Niño Dios del pueblo.
+    <p class="formal-label">CON LA BENDICIÓN DE DIOS</p>
+
+    <p class="formal-text">
+      La familia <span class="script-name">Rodríguez&nbsp;Serralde</span> tiene el honor de invitarlos a la celebración con motivo de los <em>XV años</em> de vida de nuestra hija, y al cambio del Niño Dios del pueblo.
     </p>
 
-    <!-- Foto real: el Niño Dios del pueblo bajo el arco floral (coincide con el texto de arriba) -->
-    <figure class="arch-photo reveal" data-reveal="up">
-      <img src="assets/images/vendor/nino-dios-arco.png" width="638" height="799" alt="Niño Dios bajo un arco floral, para el cambio del pueblo">
+    <div class="divider-orn" aria-hidden="true">
+      <span class="divider-orn__line"></span><i class="divider-orn__diamond"></i><span class="divider-orn__line"></span>
+    </div>
+
+    <!-- Foto real: el Niño Dios del pueblo bajo el arco floral -->
+    <figure class="photo-framed">
+      <div class="photo-framed__inner">
+        <img src="assets/images/vendor/nino-dios-arco.png" width="638" height="799" alt="Niño Dios bajo un arco floral, para el cambio del pueblo">
+      </div>
     </figure>
+    <p class="formal-caption">Una tradición que este año llega a nuestra casa</p>
   </div>
 </section>
 
 <!-- ============================================================
      4. AGENDA LA FECHA
      ============================================================ -->
-<section class="section section--blush agenda-section" id="agenda">
+<section class="agenda-section" id="agenda">
+  <img class="corner-orn corner-orn--tl reveal" data-reveal="fade" src="assets/images/vendor/corner-flourish-2.png" width="800" height="800" alt="" aria-hidden="true">
+  <img class="corner-orn corner-orn--tr reveal" data-reveal="fade" src="assets/images/vendor/corner-flourish-2.png" width="800" height="800" alt="" aria-hidden="true">
+  <img class="corner-orn corner-orn--bl reveal" data-reveal="fade" src="assets/images/vendor/corner-flourish-2.png" width="800" height="800" alt="" aria-hidden="true">
+  <img class="corner-orn corner-orn--br reveal" data-reveal="fade" src="assets/images/vendor/corner-flourish-2.png" width="800" height="800" alt="" aria-hidden="true">
+
   <h2 class="agenda-heading reveal" data-reveal="up">
-    <span class="agenda-heading__agenda">Agenda</span>
-    <span class="agenda-heading__fecha">la fecha</span>
+    AGENDA <span class="agenda-heading__fecha">la fecha</span>
   </h2>
 
+  <!--
+    Nota: el sitio de referencia usa aquí una imagen de calendario genérica de
+    "Octubre 2025" (año equivocado, puramente decorativa). En vez de copiar ese
+    error, este calendario es una grilla real de octubre 2026 (el 10 SÍ es
+    sábado), construida en HTML/CSS.
+  -->
   <div class="calendar reveal" data-reveal="up">
-    <img class="corner-img corner-img--cal-left" src="assets/images/vendor/corner-flourish-2.png" width="800" height="800" alt="" aria-hidden="true">
-    <img class="corner-img corner-img--cal-right" src="assets/images/vendor/corner-flourish-2.png" width="800" height="800" alt="" aria-hidden="true">
-
-    <!--
-      Nota: el sitio de referencia usa aquí una imagen de calendario genérica de
-      "Octubre 2025" (año equivocado, puramente decorativa). En vez de copiar ese
-      error, este calendario es una grilla real de octubre 2026 (el 10 SÍ es
-      sábado), construida en HTML/CSS — no depende de ninguna imagen.
-    -->
-    <div class="calendar__card">
-      <p class="calendar__month">Octubre</p>
-      <div class="calendar__weekdays">
-        <span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span>
-      </div>
-      <div class="calendar__grid">
-        <span class="is-empty"></span><span class="is-empty"></span><span class="is-empty"></span>
-        <span>1</span><span>2</span><span>3</span><span>4</span>
-        <span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
-        <span class="is-event">10</span><span>11</span>
-        <span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span>
-        <span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span>
-        <span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span>
-      </div>
+    <p class="calendar__month">Octubre</p>
+    <div class="calendar__weekdays">
+      <span>D</span><span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span>
+    </div>
+    <div class="calendar__grid">
+      <span></span><span></span><span></span><span></span><span>1</span><span>2</span><span>3</span>
+      <span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span class="is-event">10</span>
+      <span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span>
+      <span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span>
+      <span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span>
     </div>
   </div>
 
-  <div class="date-chips reveal" data-reveal="up">
-    <span class="date-chip date-chip--script">Sábado</span>
-    <span class="date-chip date-chip--num">10</span>
-    <span class="date-chip">2026</span>
+  <div class="date-row reveal" data-reveal="up">
+    <span>Sábado</span>
+    <span class="date-row__num">10</span>
+    <span>2026</span>
   </div>
+  <div class="date-row__line reveal" data-reveal="fade"></div>
 
   <div class="countdown reveal" data-reveal="up" aria-live="polite">
-    <div class="countdown__item"><span class="countdown__num" id="cdDays">00</span><span class="countdown__label">Días</span></div>
+    <div class="countdown__item"><span class="countdown__num" id="cdDays">00</span><span class="countdown__label">DÍAS</span></div>
     <span class="countdown__sep">:</span>
-    <div class="countdown__item"><span class="countdown__num" id="cdHours">00</span><span class="countdown__label">Horas</span></div>
+    <div class="countdown__item"><span class="countdown__num" id="cdHours">00</span><span class="countdown__label">HORAS</span></div>
     <span class="countdown__sep">:</span>
-    <div class="countdown__item"><span class="countdown__num" id="cdMinutes">00</span><span class="countdown__label">Minutos</span></div>
+    <div class="countdown__item"><span class="countdown__num" id="cdMinutes">00</span><span class="countdown__label">MINUTOS</span></div>
     <span class="countdown__sep">:</span>
-    <div class="countdown__item"><span class="countdown__num" id="cdSeconds">00</span><span class="countdown__label">Segundos</span></div>
+    <div class="countdown__item"><span class="countdown__num" id="cdSeconds">00</span><span class="countdown__label">SEGUNDOS</span></div>
   </div>
 
-  <img class="botas-img reveal" data-reveal="up" src="assets/images/vendor/botas-charras.png" width="800" height="800" alt="Botas charras bordadas">
+  <a href="#" id="addToCalendar" class="pill pill--outline pill--calendar reveal" data-reveal="up" target="_blank" rel="noopener">
+    <svg class="pill__icon" viewBox="0 0 24 24" fill="none" stroke="#C9A227" stroke-width="1.5" aria-hidden="true">
+      <rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M12 14v4M10 16h4"/>
+    </svg>
+    <span>Guardar en mi calendario</span>
+  </a>
 </section>
 
 <!-- ============================================================
-     Separador — herradura ornamental
+     Separador — herradura ornamental (Valery.htm)
      ============================================================ -->
 <div class="horseshoe-banner">
   <img class="horseshoe-img reveal" data-reveal="scale" src="assets/images/vendor/herradura.png" width="800" height="800" alt="Herradura ornamental">
@@ -169,65 +176,92 @@
 <!-- ============================================================
      5. CEREMONIA + RECEPCIÓN
      ============================================================ -->
-<section class="section section--cream detail-section" id="ceremonia">
-  <h2 class="detail-title reveal" data-reveal="up">Ceremonia</h2>
-  <p class="detail-place reveal" data-reveal="up">Santuario Señor<br>de las Misericordias</p>
-  <p class="detail-sub reveal" data-reveal="up">San Pedro Actopan</p>
+<section class="detail-section" id="ceremonia">
+  <div class="card-navy detail-card reveal" data-reveal="up">
+    <img class="corner-orn corner-orn--tl" src="assets/images/vendor/corner-flourish-1.png" width="800" height="800" alt="" aria-hidden="true">
+    <img class="corner-orn corner-orn--tr" src="assets/images/vendor/corner-flourish-1.png" width="800" height="800" alt="" aria-hidden="true">
+    <img class="corner-orn corner-orn--bl" src="assets/images/vendor/corner-flourish-1.png" width="800" height="800" alt="" aria-hidden="true">
+    <img class="corner-orn corner-orn--br" src="assets/images/vendor/corner-flourish-1.png" width="800" height="800" alt="" aria-hidden="true">
+    <div class="diamond-mark diamond-mark--top" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 1l3.4 7.6L23 12l-7.6 3.4L12 23l-3.4-7.6L1 12l7.6-3.4Z" fill="#C9A227"/></svg></div>
+    <div class="diamond-mark diamond-mark--bottom" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 1l3.4 7.6L23 12l-7.6 3.4L12 23l-3.4-7.6L1 12l7.6-3.4Z" fill="#C9A227"/></svg></div>
 
-  <!-- Foto real del santuario -->
-  <figure class="rect-photo reveal" data-reveal="up">
-    <img src="assets/images/vendor/santuario.png" width="408" height="306" alt="Santuario Señor de las Misericordias, San Pedro Actopan">
-  </figure>
+    <h2 class="detail-title">CEREMONIA</h2>
+    <p class="detail-place">Santuario Señor<br>de las Misericordias</p>
+    <p class="detail-sub">San Pedro Actopan, Milpa Alta</p>
 
-  <a href="#" id="mapCeremonia" class="btn-pill-img reveal" data-reveal="up" target="_blank" rel="noopener">
-    <img src="assets/images/vendor/boton-ubicacion.png" width="798" height="266" alt="Ver ubicación">
-  </a>
-  <p class="detail-time reveal" data-reveal="up">11:45 a.m.</p>
+    <!-- Foto real del santuario -->
+    <figure class="photo-framed">
+      <div class="photo-framed__inner">
+        <img src="assets/images/vendor/santuario.png" width="408" height="306" alt="Santuario Señor de las Misericordias, San Pedro Actopan">
+      </div>
+    </figure>
 
-  <div class="ornament-divider reveal" data-reveal="fade" aria-hidden="true">
-    <svg viewBox="0 0 200 40"><path d="M0 20h70M130 20h70" /><circle cx="100" cy="20" r="5" /></svg>
+    <a href="#" id="mapCeremonia" class="pill pill--outline" target="_blank" rel="noopener">
+      <svg class="pill__icon" viewBox="0 0 24 24" fill="none" stroke="#C9A227" stroke-width="1.6" aria-hidden="true">
+        <path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/>
+      </svg>
+      <span>Ver ubicación</span>
+    </a>
+    <p class="detail-time">11:45 a.m.</p>
+
+    <div class="divider-orn" aria-hidden="true">
+      <span class="divider-orn__line"></span><i class="divider-orn__diamond"></i><span class="divider-orn__line"></span>
+    </div>
+
+    <h2 class="detail-title" id="recepcion">RECEPCIÓN</h2>
+    <p class="detail-address">
+      Avenida México Poniente, número 22<br>
+      <span class="muted">San Gregorio Atlapulco, Xochimilco</span>
+    </p>
+
+    <!-- Foto real del lugar de recepción -->
+    <figure class="photo-framed">
+      <div class="photo-framed__inner">
+        <img src="assets/images/vendor/recepcion.png" width="408" height="725" alt="Lugar de la recepción en San Gregorio Atlapulco">
+      </div>
+    </figure>
+
+    <a href="#" id="mapRecepcion" class="pill pill--outline" target="_blank" rel="noopener">
+      <svg class="pill__icon" viewBox="0 0 24 24" fill="none" stroke="#C9A227" stroke-width="1.6" aria-hidden="true">
+        <path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/>
+      </svg>
+      <span>Ver ubicación</span>
+    </a>
+    <!-- EDITA la hora de la recepción en index.html cuando esté confirmada -->
+    <p class="detail-time detail-time--placeholder">[hora] p.m.</p>
+
+    <div class="divider-orn" aria-hidden="true">
+      <span class="divider-orn__line"></span><i class="divider-orn__diamond"></i><span class="divider-orn__line"></span>
+    </div>
+
+    <div class="rsvp-block">
+      <p class="rsvp-block__label">Confirma tu asistencia antes del evento</p>
+      <a href="#" id="rsvpBtn" class="pill pill--solid" target="_blank" rel="noopener">
+        <svg class="pill__icon" viewBox="0 0 24 24" fill="#0B1F3F" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.5l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.9 2.2 1 2.4c.1.2 1.7 2.6 4.1 3.6.6.2 1 .4 1.4.5.6.2 1.1.1 1.5.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>
+        <span>Confirmar asistencia</span>
+      </a>
+    </div>
   </div>
-
-  <h2 class="detail-title reveal" data-reveal="up" id="recepcion">Recepción</h2>
-  <p class="detail-place detail-place--small reveal" data-reveal="up">
-    Avenida México Poniente, número 22,<br>San Gregorio Atlapulco
-  </p>
-
-  <!-- Foto real del lugar de recepción -->
-  <figure class="rect-photo reveal" data-reveal="up">
-    <img src="assets/images/vendor/recepcion.png" width="408" height="725" alt="Lugar de la recepción en San Gregorio Atlapulco">
-  </figure>
-
-  <a href="#" id="mapRecepcion" class="btn-pill-img reveal" data-reveal="up" target="_blank" rel="noopener">
-    <img src="assets/images/vendor/boton-ubicacion.png" width="798" height="266" alt="Ver ubicación">
-  </a>
-
-  <div class="ornament-divider reveal" data-reveal="fade" aria-hidden="true">
-    <svg viewBox="0 0 200 40"><path d="M0 20h70M130 20h70" /><circle cx="100" cy="20" r="5" /></svg>
-  </div>
-
-  <p class="rsvp__label reveal" data-reveal="up">Confirma tu asistencia antes del evento</p>
-  <a href="#" id="rsvpBtn" class="btn-pill btn-pill--rsvp reveal" data-reveal="up" target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24" class="btn-pill__icon" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.5l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.9 2.2 1 2.4c.1.2 1.7 2.6 4.1 3.6.6.2 1 .4 1.4.5.6.2 1.1.1 1.5.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z" /></svg>
-    <span>Confirmar asistencia</span>
-  </a>
 </section>
 
 <!-- ============================================================
-     6. CIERRE
+     6. CIERRE — No Faltes + emblema
      ============================================================ -->
-<section class="section section--cream cierre-section">
-  <img class="rose-garland rose-garland--cierre reveal" data-reveal="fade" src="assets/images/vendor/rose-garland.png" width="1448" height="1086" alt="">
+<section class="cierre-section">
+  <img class="corner-orn corner-orn--tl reveal" data-reveal="fade" src="assets/images/vendor/corner-flourish-1.png" width="800" height="800" alt="" aria-hidden="true">
+  <img class="corner-orn corner-orn--tr reveal" data-reveal="fade" src="assets/images/vendor/corner-flourish-1.png" width="800" height="800" alt="" aria-hidden="true">
+  <img class="corner-orn corner-orn--bl reveal" data-reveal="fade" src="assets/images/vendor/corner-flourish-1.png" width="800" height="800" alt="" aria-hidden="true">
+  <img class="corner-orn corner-orn--br reveal" data-reveal="fade" src="assets/images/vendor/corner-flourish-1.png" width="800" height="800" alt="" aria-hidden="true">
+  <div class="diamond-mark diamond-mark--top" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 1l3.4 7.6L23 12l-7.6 3.4L12 23l-3.4-7.6L1 12l7.6-3.4Z" fill="#C9A227"/></svg></div>
 
   <p class="cierre__frase reveal" data-reveal="up">
     Los momentos especiales de la vida son únicos e irrepetibles, pero al compartirlos con personas queridas, se convierten en recuerdos inolvidables.
   </p>
   <p class="cierre__enfasis reveal" data-reveal="scale">No Faltes</p>
 
-  <img class="emblem-img reveal" data-reveal="up" src="assets/images/vendor/emblema-xv.png" width="800" height="800" alt="Emblema XV">
+  <img class="emblem-wrap reveal" data-reveal="up" src="assets/images/vendor/emblema-xv.png" width="800" height="800" alt="Emblema XV">
 </section>
 
-</div><!-- /.page-wrap -->
 <script src="js/main.js"></script>
 </body>
 </html>
