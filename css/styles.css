@@ -198,13 +198,23 @@ body {
 }
 
 .rose-corner { position: absolute; width: 108px; top: 18%; pointer-events: none; z-index: 0; }
-.rose-corner--left { left: -20px; }
-.rose-corner--right { right: -20px; transform: scaleX(-1); }
 .rose-corner--env-left, .rose-corner--env-right { top: auto; bottom: 4%; }
 .rose-corner--env-left { left: -24px; }
 .rose-corner--env-right { right: -24px; transform: scaleX(-1); }
 
+/* Rosas que flanquean el sombrero: posicionadas relativas a .hat-wrap (no a
+   toda la sección), así no se desalinean si el bloque de texto de arriba
+   cambia de largo. */
+.hat-wrap { position: relative; }
+.hat-wrap .rose-corner--left { top: 50%; left: -20px; transform: translateY(-50%); }
+.hat-wrap .rose-corner--right { top: 50%; right: -20px; transform: translateY(-50%) scaleX(-1); }
+
 .hat-img { position: relative; z-index: 1; width: min(210px, 72%); margin: 0 auto 6px; }
+
+/* Texto de introducción (Niño Dios / cambio de mayordomos) reutiliza el
+   estilo de .formal-label / .formal-text pero necesita separación antes
+   del sombrero. */
+.invite-intro-text { margin-bottom: 20px; }
 
 .name-script {
   position: relative; z-index: 1;
@@ -481,8 +491,6 @@ body {
 }
 .countdown__sep { font-size: 1.9rem; line-height: 1.05; color: var(--gold); align-self: center; }
 
-.pill--calendar { margin-top: 32px; }
-
 /* ==========================================================================
    Separador — herradura ornamental (Valery.htm)
    ========================================================================== */
@@ -605,6 +613,6 @@ body {
    ========================================================================== */
 @media (min-width: 640px) {
   .rose-corner { width: 140px; }
-  .rose-corner--left, .rose-corner--env-left { left: -10px; }
-  .rose-corner--right, .rose-corner--env-right { right: -10px; }
+  .hat-wrap .rose-corner--left, .rose-corner--env-left { left: -10px; }
+  .hat-wrap .rose-corner--right, .rose-corner--env-right { right: -10px; }
 }

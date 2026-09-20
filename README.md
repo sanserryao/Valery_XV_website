@@ -24,19 +24,21 @@ vez que edites el CSS para que se refresque solo.
 ```
 index.html
   1) hero            → video de fondo con marco dorado inciso (sin texto encima)
-  2) invite-section   → sombrero + "Valery" + "MIS XV AÑOS" + fecha + "Escucha mi canción"
+  2) invite-section   → "Niño Dios del pueblo y la Virgen de la Purísima Concepción" +
+                        invitación de la familia (justo debajo del video) + sombrero
+                        + "Valery" + "MIS XV AÑOS" + fecha + "Escucha mi canción"
                         + botón de música + sobre con sello de cera (mensaje)
   3) formal-section    → tarjeta crema con marco de rosas: "Con la bendición de Dios"
-                        + invitación formal + foto del Niño Dios bajo el arco
+                        + foto del Niño Dios bajo el arco
   4) agenda-section     → "Agenda la fecha" + calendario real de octubre 2026
-                        + countdown en vivo + "Guardar en mi calendario" (Google Calendar)
+                        + countdown en vivo
   — separador de herradura (fondo crema) —
   5) detail-section      → DOS tarjetas independientes, cada una con su propio marco:
                         Ceremonia (foto + Ver ubicación) y Recepción (foto + Ver ubicación)
   6) cierre-section       → frase de cierre + "No Faltes" + emblema XV (tarjeta con marco)
 
 css/styles.css    → paleta y tipografía exactas del cliente, tarjetas, animaciones
-js/main.js        → CONFIG editable, countdown, calendario, scroll reveal, música, mapas
+js/main.js        → CONFIG editable, countdown, scroll reveal, música, mapas
 assets/images/vendor/  → gráficos reales del cliente (ver tabla abajo)
 assets/audio/     → cancion.mp3
 assets/video/     → hero-loop.mp4
@@ -45,6 +47,18 @@ assets/video/     → hero-loop.mp4
 **No hay botón de "Confirmar asistencia".** Se quitó a pedido explícito — si más adelante
 lo quieren de vuelta, el commit anterior a este cambio en git ya tiene el botón completo
 (HTML + CSS `.pill--solid` + `setupRsvpButton()` en JS) para recuperarlo fácilmente.
+
+**No hay botón de "Guardar en mi calendario".** También se quitó a pedido explícito (botón,
+`setupAddToCalendar()` en JS y su estilo `.pill--calendar`) — recuperable del historial de
+git si lo quieren de vuelta.
+
+**El texto de invitación de la familia se movió** de la tarjeta de `formal-section` a
+`invite-section`, justo debajo del video del hero y arriba del sombrero (a pedido del
+cliente, para que sea lo primero que se lea al abrir el sitio). La tarjeta de
+`formal-section` conserva el encabezado "Con la bendición de Dios" y la foto del Niño Dios,
+sin repetir el párrafo. Las rosas que flanquean el sombrero ahora están posicionadas
+relativas a `.hat-wrap` (no a toda la sección), para que no se desalineen si ese bloque de
+texto cambia de largo.
 
 ## Paleta y tipografía (exactas del cliente)
 
@@ -111,20 +125,16 @@ pásalas por [squoosh.app](https://squoosh.app) o TinyPNG (e idealmente a WebP),
 `assets/video/hero-loop.mp4` (HandBrake o `ffmpeg -crf 28`) — el peso total del sitio hoy
 es considerable, lo cual es mucho para datos móviles.
 
-## Countdown, calendario y "Guardar en mi calendario"
+## Countdown y calendario
 
 - El **countdown** (`Días : Horas : Minutos : Segundos`) es JS puro, calculado en vivo cada
   segundo contra `CONFIG.eventDateTime`.
 - El **calendario** de octubre 2026 está escrito directo en el HTML (no depende de JS ni de
   una imagen), así que nunca se puede desincronizar del countdown.
-- El botón **"Guardar en mi calendario"** arma un link real de Google Calendar
-  (`setupAddToCalendar` en `js/main.js`) con el evento prellenado: inicio en
-  `CONFIG.eventDateTime`, fin +11 horas por default (edítalo en esa función si la celebración
-  dura distinto), y la dirección de la ceremonia como ubicación.
 
 Si cambias la fecha del evento, edita **una sola vez** `CONFIG.eventDateTime` en `js/main.js`
-— countdown y calendario de Google se ajustan solos. Si además cambia el mes/año, hay que
-regenerar a mano la grilla `.calendar__grid` en `index.html`.
+— el countdown se ajusta solo. Si además cambia el mes/año, hay que regenerar a mano la
+grilla `.calendar__grid` en `index.html`.
 
 ## Ubicaciones y hora de la recepción
 
@@ -134,7 +144,7 @@ Edita el bloque `CONFIG` al inicio de `js/main.js`:
 const CONFIG = {
   quinceanera: "Valery",
   eventDateTime: new Date("2026-10-10T11:45:00-06:00"),
-  ceremonyAddress: "Santuario Señor de las Misericordias, San Pedro Actopan, Milpa Alta, Ciudad de México",
+  ceremonyAddress: "Santuario del Señor de las Misericordias, San Pedro Actopan, Milpa Alta, Ciudad de México",
   receptionAddress: "Avenida México Poniente 22, San Gregorio Atlapulco, Xochimilco, Ciudad de México",
 };
 ```
@@ -153,6 +163,8 @@ const CONFIG = {
   sábado, verificado).
 - **Ubicación de la recepción:** "San Gregario Atlapulco" → "San Gregorio Atlapulco".
 - **Texto de invitación:** "LA FAM: Rodriguez Serralde" → "La familia Rodríguez Serralde".
+- **Nombre del santuario:** "Santuario Señor de las Misericordias" → "Santuario del Señor de
+  las Misericordias" (falta el "del").
 - **Sin texto duplicado** en el DOM (el original repetía casi todos los párrafos dos veces).
 - **Calendario real** en vez de la imagen decorativa con el año equivocado.
 

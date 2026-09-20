@@ -14,7 +14,7 @@ const CONFIG = {
   eventDateTime: new Date("2026-10-10T11:45:00-06:00"),
 
   // Direcciones reales — se usan para armar los botones "Ver ubicación" (Google Maps).
-  ceremonyAddress: "Santuario Señor de las Misericordias, San Pedro Actopan, Milpa Alta, Ciudad de México",
+  ceremonyAddress: "Santuario del Señor de las Misericordias, San Pedro Actopan, Milpa Alta, Ciudad de México",
   receptionAddress: "Avenida México Poniente 22, San Gregorio Atlapulco, Xochimilco, Ciudad de México",
 };
 
@@ -24,7 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
   setupMapLinks();
   setupCountdown();
   setupHeroVideo();
-  setupAddToCalendar();
 });
 
 /* --------------------------------------------------------------------------
@@ -139,30 +138,6 @@ function setupMapLinks() {
   if (receptionLink) receptionLink.href = mapsUrl(CONFIG.receptionAddress);
 }
 
-
-/* --------------------------------------------------------------------------
-   Botón "Guardar en mi calendario" — arma un link de Google Calendar con el
-   evento prellenado (fecha de inicio real, ~11 horas de duración por default).
-   -------------------------------------------------------------------------- */
-function setupAddToCalendar() {
-  const link = document.getElementById("addToCalendar");
-  if (!link) return;
-
-  const toGCalUTC = (date) =>
-    date.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
-
-  const start = CONFIG.eventDateTime;
-  const end = new Date(start.getTime() + 11 * 60 * 60 * 1000); // +11 horas por default
-
-  const params = new URLSearchParams({
-    action: "TEMPLATE",
-    text: `XV Años de ${CONFIG.quinceanera}`,
-    dates: `${toGCalUTC(start)}/${toGCalUTC(end)}`,
-    location: CONFIG.ceremonyAddress,
-  });
-
-  link.href = `https://calendar.google.com/calendar/render?${params.toString()}`;
-}
 
 /* --------------------------------------------------------------------------
    Countdown en vivo hasta CONFIG.eventDateTime
