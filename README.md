@@ -24,8 +24,7 @@ vez que edites el CSS para que se refresque solo.
 ```
 index.html
   1) hero            → video de fondo con marco dorado inciso (sin texto encima)
-  2) invite-section   → "Niño Dios del pueblo y la Virgen de la Purísima Concepción" +
-                        invitación de la familia (justo debajo del video) + sombrero
+  2) invite-section   → invitación de la familia (justo debajo del video) + sombrero
                         + "Valery" + "MIS XV AÑOS" + fecha + "Escucha mi canción"
                         + botón de música + sobre con sello de cera (mensaje)
   3) formal-section    → tarjeta crema con marco de rosas: "Con la bendición de Dios"
