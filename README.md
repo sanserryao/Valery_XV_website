@@ -1,6 +1,6 @@
 # Mis XV — Valery
 
-Invitación digital de una sola página para los XV años de Valery — **Sábado 10 de Octubre de 2026**. HTML/CSS/JS puro, sin frameworks ni build step. Diseño basado en la referencia visual del cliente: azul marino + dorado sobre crema, rosas marino, marco doble dorado, calendario y countdown en vivo.
+Invitación digital de una sola página para los XV años de Valery — **Sábado 10 de Octubre de 2026**. HTML/CSS/JS puro, sin frameworks ni build step. Diseño y gráficos tomados directamente de la referencia real del cliente (confirmó derechos de uso de los assets), con el contenido corregido.
 
 ## Cómo verlo
 
@@ -17,48 +17,72 @@ y abrir `http://localhost:5173`.
 ```
 index.html      → 1) hero (sombrero + "Valery" + escucha mi canción)
                    2) sobre con mensaje
-                   3) invitación formal + foto bajo arco
+                   3) invitación formal + foto (Niño Dios bajo el arco)
                    4) agenda la fecha (calendario + countdown en vivo)
                    — separador de herradura —
                    5) ceremonia + recepción (con botones "Ver ubicación")
                    6) confirmar asistencia
                    7) cierre + emblema final "XV"
-css/styles.css   → paleta, tipografía, rosas/ornamentos SVG, animaciones
+css/styles.css   → paleta real extraída del sitio de referencia, layout, animaciones
 js/main.js       → CONFIG editable, countdown, scroll reveal, música, mapas, RSVP
-assets/images/   → fotos reales (ver "Reemplazar contenido")
+assets/images/vendor/  → gráficos reales del cliente (ver abajo)
+assets/images/   → fotos propias que aún faltan (santuario/recepción ya están; ver nota)
 assets/audio/    → cancion.mp3
 assets/video/    → hero-loop.mp4
 ```
 
-**Nota sobre las rosas y florituras:** están hechas como ilustraciones vectoriales propias
-(un solo `<symbol>` de rosa reutilizado por todo el sitio, en `index.html`) inspiradas en los
-colores y la composición de la referencia — no son un calco pixel-por-pixel del clip art
-original, que es demasiado detallado para reproducir a mano en SVG. Si más adelante consigues
-el clip art real (o algo de un banco de imágenes con licencia), puedo intercambiar estos SVG
-por esos archivos sin tocar el resto del layout.
+## Assets gráficos reales (`assets/images/vendor/`)
 
-## Reemplazar contenido con archivos reales
+El cliente confirmó tener derecho a reutilizar los gráficos del sitio de referencia
+(invitaciones-steli.com/valery), así que estos son los archivos reales — no ilustraciones
+propias. Vienen del HTML guardado del sitio original y ya están integrados:
 
-Todo está señalado con comentarios `<!-- -->` en `index.html` justo donde va cada archivo:
+| Archivo | Uso |
+|---|---|
+| `rose-garland.png` | flourish floral horizontal (tope del hero y sección de cierre) |
+| `sombrero.png` | sombrero charro del hero |
+| `valery-wordmark.png` | "Valery" en script dorado |
+| `rose-single.png` | rosas de esquina al pie del hero |
+| `envelope-seal.png` | sobre con sello de cera (sección 2) |
+| `corner-flourish-1.png` | florituras de las 4 esquinas del marco de invitación formal |
+| `nino-dios-arco.png` | foto real del Niño Dios bajo el arco floral |
+| `corner-flourish-2.png` | florituras a los lados del calendario |
+| `botas-charras.png` | botas bordadas, acento decorativo en Agenda |
+| `herradura.png` | separador de herradura entre Agenda y Ceremonia |
+| `boton-ubicacion.png` | botón "Ver ubicación" (Ceremonia y Recepción) |
+| `santuario.png` | foto real del Santuario Señor de las Misericordias |
+| `recepcion.png` | foto real del lugar de recepción |
+| `emblema-xv.png` | emblema circular "XV" de cierre |
 
-1. **Foto de Valery bajo el arco floral** (sección 3) — agrega `assets/images/valery-arco.jpg`
-   y reemplaza el bloque `.arch-photo__placeholder` por un `<img>` (instrucción exacta en el
-   comentario arriba de esa figura).
-2. **Foto del santuario** (Ceremonia) — agrega `assets/images/santuario.jpg`, mismo patrón con
-   `.rect-photo__placeholder`.
-3. **Foto del lugar de recepción** — agrega `assets/images/recepcion.jpg`, mismo patrón.
-4. **Video de fondo del hero** — agrega `assets/video/hero-loop.mp4` (corto, silencioso, pocos MB)
+**No se usó** la imagen de calendario del original (genérica, de "Octubre **2025**" — año
+equivocado, puramente decorativa). En su lugar, `index.html` tiene una grilla real de
+octubre 2026 en HTML/CSS, con el 10 correctamente marcado como sábado — así el calendario
+nunca puede desincronizarse del countdown ni repetir el error de fecha del sitio original.
+
+**Optimización pendiente:** estos PNG vienen sin comprimir (~9.5 MB en total, algunos de
+más de 1 MB c/u). Antes de publicar el sitio conviene pasarlos por un compresor de imágenes
+(por ejemplo [squoosh.app](https://squoosh.app) o TinyPNG) y idealmente convertirlos a WebP —
+ahora mismo esto puede hacer lenta la carga en celular.
+
+## Reemplazar/agregar contenido
+
+Todo está señalado con comentarios `<!-- -->` en `index.html`:
+
+1. **Video de fondo del hero** — agrega `assets/video/hero-loop.mp4` (corto, silencioso, pocos MB)
    y descomenta la línea `<source>` dentro de `.hero__video`. Mientras no lo agregues, se ve el
    degradado crema/dorado de respaldo.
-5. **Canción** — agrega `assets/audio/cancion.mp3`. El botón ya está conectado a doble clic
+2. **Canción** — agrega `assets/audio/cancion.mp3`. El botón ya está conectado a doble clic
    (igual que la referencia), no hay que tocar el JS.
+
+Las fotos del Niño Dios, el santuario y la recepción ya son las reales — no hacen falta
+placeholders para esas tres.
 
 ## Countdown y calendario
 
 El countdown (`Días : Horas : Minutos : Segundos`) es JavaScript puro (`setupCountdown` en
 `js/main.js`), calculado en vivo cada segundo contra `CONFIG.eventDateTime`. El calendario de
-octubre 2026 está escrito directo en el HTML (el 10 es sábado — ya verificado), así que no
-depende de JS y nunca se puede desincronizar del countdown.
+octubre 2026 está escrito directo en el HTML, así que no depende de JS ni de una imagen y
+nunca se puede desincronizar del countdown.
 
 Si cambias la fecha del evento, edita **una sola vez** `CONFIG.eventDateTime` en `js/main.js`
 (zona horaria Ciudad de México, UTC-6 fijo) — el countdown se ajusta solo. Si además cambia el
@@ -91,9 +115,10 @@ const CONFIG = {
 
 ## Correcciones de contenido aplicadas (respecto al sitio/diseño original)
 
-- **Fecha consistente:** el calendario marcaba el 10 pero el texto decía "Sábado 22" — dos
-  fechas distintas. Aquí la fecha es una sola en todo el sitio, calendario incluido:
-  **Sábado 10 de Octubre de 2026** (verificado: el 10 de octubre de 2026 sí es sábado).
+- **Fecha consistente:** el calendario del original marcaba el 10 pero el texto decía
+  "Sábado 22" — dos fechas distintas, y con el typo "10 Ocubre 2026" en el hero. Aquí la
+  fecha es una sola en todo el sitio, calendario incluido: **Sábado 10 de Octubre de 2026**
+  (verificado: el 10 de octubre de 2026 sí es sábado).
 - **Ubicación de la recepción:** "San Gregario Atlapulco" → "San Gregorio Atlapulco".
 - **Texto de invitación:** "LA FAM: Rodriguez Serralde" → "La familia Rodríguez Serralde"
   (con el acento correcto).
@@ -101,8 +126,10 @@ const CONFIG = {
   Aquí cada texto existe una sola vez.
 - **Botón de confirmación funcional:** apunta a un link de WhatsApp real (editable), no a un
   href vacío o roto.
+- **Calendario real en vez de imagen decorativa con el año equivocado** (ver arriba).
 
 ## Despliegue
 
 Sitio 100% estático — funciona en Vercel, Netlify, GitHub Pages o cualquier hosting simple,
-sin build command ni variables de entorno.
+sin build command ni variables de entorno. Antes de publicar, comprime las imágenes en
+`assets/images/vendor/` (ver nota arriba).

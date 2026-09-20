@@ -1,21 +1,21 @@
 /* ==========================================================================
    Mis XV — Valery
-   Paleta: azul marino + dorado sobre crema/marfil, motivo de rosas marino
+   Paleta extraída del sitio de referencia real (azul marino + dorado cálido
+   sobre crema), con los recursos gráficos reales del cliente.
    ========================================================================== */
 
 :root {
-  --navy: #0B1F3F;
-  --navy-2: #17325C;
-  --navy-deep: #081527;
-  --gold: #C9A227;
-  --gold-light: #E3C465;
-  --gold-dark: #9c7a2e;
-  --cream: #FAF3E7;
-  --cream-2: #F5EFE3;
-  --blush: #FBF1E6;
-  --ivory: #FFFDF7;
-  --leaf: #4b6a4f;
-  --leaf-dark: #3f5c43;
+  --navy: #0f2342;
+  --navy-2: #1e355c;
+  --navy-deep: #0a1830;
+  --gold: #e7aa51;
+  --gold-light: #ffe499;
+  --gold-dark: #ac7031;
+  --gold-deep: #8d5a1b;
+  --cream: #fbf4ea;
+  --cream-2: #f5ead8;
+  --blush: #fdf6ec;
+  --ivory: #fffef6;
 
   --font-script: 'Great Vibes', cursive;
   --font-serif: 'Cormorant Garamond', serif;
@@ -31,6 +31,16 @@ body, h1, h2, h3, p, figure { margin: 0; }
 img, svg { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -103,29 +113,6 @@ body {
 }
 
 /* ==========================================================================
-   Rosas (sprite reutilizable)
-   ========================================================================== */
-.rose-cluster { position: absolute; width: 140px; pointer-events: none; }
-.rose-cluster svg { width: 100%; height: auto; overflow: visible; }
-.rose__center { fill: var(--gold-dark); }
-
-.rose-cluster--bl { left: -18px; bottom: -10px; width: 150px; }
-.rose-cluster--br { right: -18px; bottom: -10px; width: 150px; }
-
-.rose-cluster--side { top: 50%; transform: translateY(-50%); width: 130px; }
-.rose-cluster--left { left: -30px; }
-.rose-cluster--right { right: -30px; }
-
-.rose-cluster--corner { width: 96px; }
-.rose-cluster--corner.rose-cluster--tl { top: -14px; left: -14px; }
-.rose-cluster--corner.rose-cluster--tr { top: -14px; right: -14px; }
-.rose-cluster--corner.rose-cluster--bl { bottom: -14px; left: -14px; }
-.rose-cluster--corner.rose-cluster--br { bottom: -14px; right: -14px; }
-
-.rose-cluster--cal-left { left: -34px; top: -10px; width: 120px; }
-.rose-cluster--cal-right { right: -20px; top: -24px; width: 96px; }
-
-/* ==========================================================================
    HERO
    ========================================================================== */
 .hero {
@@ -143,42 +130,27 @@ body {
 .hero__poster {
   position: absolute; inset: 0;
   background:
-    radial-gradient(circle at 50% 15%, rgba(201,162,39,0.14), transparent 55%),
+    radial-gradient(circle at 50% 15%, rgba(231,170,81,0.16), transparent 55%),
     linear-gradient(180deg, var(--blush) 0%, var(--cream-2) 100%);
 }
 .hero__overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(250,243,231,0.25) 0%, rgba(250,243,231,0.55) 100%);
+  background: linear-gradient(180deg, rgba(251,244,234,0.2) 0%, rgba(251,244,234,0.5) 100%);
 }
 
 .hero__content {
   position: relative; z-index: 2;
   display: flex; flex-direction: column; align-items: center;
   text-align: center;
-  padding: 5rem 1.75rem 4rem;
+  padding: 3.5rem 1.75rem 4rem;
   width: 100%;
 }
 
-.hat { width: 200px; color: var(--navy); margin-bottom: 1rem; }
-.hat__brim { fill: var(--navy); }
-.hat__brim-trim { fill: none; stroke: var(--gold); stroke-width: 1.5; }
-.hat__crown { fill: var(--navy-2); stroke: var(--gold); stroke-width: 1.2; }
-.hat__band { fill: none; stroke: var(--gold); stroke-width: 2; }
-.hat__stitch path { fill: none; stroke: var(--gold); stroke-width: 1; opacity: 0.85; }
-.hat__button { fill: var(--gold); }
-.hat__tassel { fill: none; stroke: var(--ivory); stroke-width: 2; stroke-linecap: round; }
+.rose-garland { width: min(340px, 90%); margin-bottom: 0.5rem; }
+.rose-garland--cierre { margin-bottom: 1.75rem; }
 
-.hero__name {
-  font-family: var(--font-script);
-  font-size: clamp(3.6rem, 15vw, 5.5rem);
-  color: var(--gold-dark);
-  background: linear-gradient(180deg, var(--gold-light), var(--gold-dark));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  line-height: 1;
-  margin-bottom: 1.5rem;
-}
+.hat-img { width: min(230px, 75%); margin: 0 auto 0.75rem; }
+.name-img { width: min(280px, 80%); margin: 0 auto 1.5rem; }
 
 .hero__music-title {
   font-family: var(--font-sans);
@@ -186,14 +158,14 @@ body {
   font-size: 0.85rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--gold-dark);
+  color: var(--gold-deep);
   margin-bottom: 0.4rem;
 }
 .hero__music-hint {
   font-family: var(--font-serif);
   font-style: italic;
   font-size: 0.95rem;
-  color: var(--gold-dark);
+  color: var(--gold-deep);
   opacity: 0.85;
   margin-bottom: 1.75rem;
 }
@@ -212,41 +184,32 @@ body {
 .play-btn[aria-pressed="true"] .play-btn__icon--play { display: none; }
 .play-btn[aria-pressed="true"] .play-btn__icon--pause { display: block; }
 
+.rose-corner { position: absolute; width: 150px; pointer-events: none; }
+.rose-corner--bl { left: -20px; bottom: -10px; }
+.rose-corner--br { right: -20px; bottom: -10px; transform: scaleX(-1); }
+
 /* ==========================================================================
    2. SOBRE CON MENSAJE
    ========================================================================== */
 .sobre-section { padding-top: clamp(4rem, 10vw, 6rem); padding-bottom: clamp(4rem, 10vw, 6rem); }
 
-.envelope {
-  position: relative;
-  width: min(320px, 100%);
-  padding: 2.75rem 1.75rem 1.75rem;
-}
-.envelope__art { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; }
-.envelope__body { fill: var(--ivory); stroke: var(--gold); stroke-width: 1.2; }
-.envelope__flap { fill: none; stroke: var(--gold); stroke-width: 1.2; }
-
-.envelope__seal {
-  position: relative;
-  z-index: 1;
-  width: 52px;
-  margin: 0 auto 1rem;
-  color: var(--gold);
-  filter: drop-shadow(0 3px 4px rgba(0,0,0,0.25));
-}
-.envelope__seal svg circle:first-child { fill: var(--gold); }
-.envelope__seal-shoe { fill: none; stroke: var(--navy); stroke-width: 2.2; stroke-linecap: round; }
-.envelope__seal-stud { fill: var(--navy); }
-
+.envelope { position: relative; width: min(360px, 100%); }
+.envelope__img { width: 100%; }
 .envelope__text {
-  position: relative;
-  z-index: 1;
+  position: absolute;
+  top: 28%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 62%;
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 0.95rem;
-  line-height: 1.65;
+  font-size: 0.78rem;
+  line-height: 1.5;
   color: var(--navy);
-  padding-top: 0.5rem;
+  z-index: 1;
+}
+@media (min-width: 420px) {
+  .envelope__text { font-size: 0.88rem; }
 }
 
 /* ==========================================================================
@@ -257,15 +220,7 @@ body {
   position: relative;
   width: 100%;
   max-width: 26rem;
-  padding: 2.5rem 1.5rem;
-  border: 1px solid var(--gold);
-}
-.formal-frame::before {
-  content: "";
-  position: absolute;
-  inset: 6px;
-  border: 1px solid rgba(201,162,39,0.5);
-  pointer-events: none;
+  padding: 2.5rem 1.75rem;
 }
 .formal-frame__text {
   font-family: var(--font-serif);
@@ -278,28 +233,28 @@ body {
   z-index: 1;
 }
 
+.corner-img { position: absolute; width: 90px; z-index: 0; opacity: 0.95; }
+.corner-img--tl { top: -6px; left: -6px; }
+.corner-img--tr { top: -6px; right: -6px; transform: scaleX(-1); }
+.corner-img--bl { bottom: -6px; left: -6px; transform: scaleY(-1); }
+.corner-img--br { bottom: -6px; right: -6px; transform: scale(-1, -1); }
+
+.corner-img--cal-left, .corner-img--cal-right { width: 84px; }
+.corner-img--cal-left { top: -20px; left: -24px; }
+.corner-img--cal-right { top: -20px; right: -24px; transform: scaleX(-1); }
+
 .arch-photo {
   position: relative;
+  z-index: 1;
   width: min(230px, 80%);
-  aspect-ratio: 3/4;
   margin: 0 auto;
   border: 3px solid var(--ivory);
   border-radius: 50% 50% 6px 6px / 38% 38% 6px 6px;
   overflow: hidden;
   box-shadow: 0 10px 26px rgba(0,0,0,0.35);
+  aspect-ratio: 3/4;
 }
-.arch-photo__placeholder {
-  position: absolute; inset: 0;
-  background: linear-gradient(160deg, #cdd8ea, #9fb0cf);
-  display: grid; place-items: center;
-  color: var(--navy);
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 0.9rem;
-  line-height: 1.4;
-  text-align: center;
-  padding: 1rem;
-}
+.arch-photo img { width: 100%; height: 100%; object-fit: cover; }
 
 /* ==========================================================================
    4. AGENDA LA FECHA
@@ -324,7 +279,7 @@ body {
 .agenda-heading__fecha {
   font-family: var(--font-script);
   font-size: clamp(2rem, 8vw, 2.6rem);
-  color: var(--gold-dark);
+  color: var(--gold-deep);
 }
 
 .calendar { position: relative; width: min(300px, 100%); margin-bottom: 2.5rem; }
@@ -335,12 +290,12 @@ body {
   border: 1px solid var(--gold);
   border-radius: 18px;
   padding: 1.5rem 1.25rem 1.25rem;
-  box-shadow: 0 14px 30px rgba(11,31,63,0.12);
+  box-shadow: 0 14px 30px rgba(15,35,66,0.12);
 }
 .calendar__month {
   font-family: var(--font-script);
   font-size: 1.8rem;
-  color: var(--gold-dark);
+  color: var(--gold-deep);
   margin-bottom: 0.75rem;
 }
 .calendar__weekdays, .calendar__grid {
@@ -354,7 +309,7 @@ body {
   font-size: 0.65rem;
   font-weight: 600;
   letter-spacing: 0.05em;
-  color: var(--gold-dark);
+  color: var(--gold-deep);
   opacity: 0.8;
 }
 .calendar__grid span {
@@ -384,12 +339,12 @@ body {
   border-radius: 4px;
   font-family: var(--font-serif);
   font-size: 1.05rem;
-  color: var(--gold-dark);
+  color: var(--gold-deep);
 }
 .date-chip--script { font-family: var(--font-script); font-size: 1.4rem; color: var(--navy); }
-.date-chip--num { font-weight: 600; font-size: 1.5rem; color: var(--gold-dark); }
+.date-chip--num { font-weight: 600; font-size: 1.5rem; color: var(--gold-deep); }
 
-.countdown { display: flex; align-items: flex-start; justify-content: center; gap: 0.6rem; }
+.countdown { display: flex; align-items: flex-start; justify-content: center; gap: 0.6rem; margin-bottom: 2rem; }
 .countdown__item { display: flex; flex-direction: column; align-items: center; min-width: 3.2rem; }
 .countdown__num {
   font-family: var(--font-serif);
@@ -404,7 +359,7 @@ body {
   font-size: 0.62rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--gold-dark);
+  color: var(--gold-deep);
   margin-top: 0.3rem;
 }
 .countdown__sep {
@@ -415,6 +370,8 @@ body {
   transform: translateY(-8px);
 }
 
+.botas-img { width: min(190px, 60%); }
+
 /* ---------- Herradura separador ---------- */
 .horseshoe-banner {
   background: var(--navy);
@@ -422,11 +379,7 @@ body {
   justify-content: center;
   padding: 2.5rem 0;
 }
-.horseshoe { width: 120px; color: var(--navy); }
-.horseshoe__band { fill: none; stroke: var(--navy-2); stroke-width: 16; stroke-linecap: round; }
-.horseshoe__trim { fill: none; stroke: var(--gold); stroke-width: 2; }
-.horseshoe__stud { fill: var(--gold); }
-.horseshoe__curl { fill: none; stroke: var(--gold); stroke-width: 1.4; stroke-linecap: round; }
+.horseshoe-img { width: min(170px, 60%); }
 
 /* ==========================================================================
    5. CEREMONIA / RECEPCIÓN
@@ -438,7 +391,7 @@ body {
   font-size: 1rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--gold-dark);
+  color: var(--gold-deep);
   margin-bottom: 1rem;
 }
 .detail-place {
@@ -453,7 +406,7 @@ body {
   font-family: var(--font-sans);
   font-size: 0.85rem;
   letter-spacing: 0.08em;
-  color: var(--gold-dark);
+  color: var(--gold-deep);
   margin-bottom: 1.5rem;
 }
 
@@ -463,17 +416,13 @@ body {
   border-radius: 14px;
   overflow: hidden;
   margin-bottom: 1.25rem;
-  box-shadow: 0 10px 24px rgba(11,31,63,0.18);
+  box-shadow: 0 10px 24px rgba(15,35,66,0.18);
 }
-.rect-photo__placeholder {
-  width: 100%; height: 100%;
-  background: linear-gradient(150deg, #e4d7b4, var(--cream-2));
-  display: grid; place-items: center;
-  color: var(--gold-dark);
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 0.95rem;
-}
+.rect-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+.btn-pill-img { display: inline-block; width: min(220px, 70%); margin-bottom: 1.5rem; transition: transform 0.25s ease; }
+.btn-pill-img:hover { transform: translateY(-2px); }
+.btn-pill-img img { width: 100%; }
 
 .btn-pill {
   display: inline-flex;
@@ -493,7 +442,7 @@ body {
 }
 .btn-pill:hover { transform: translateY(-2px); }
 .btn-pill__icon { width: 16px; height: 16px; fill: currentColor; }
-.btn-pill--rsvp { background: var(--gold); border-color: var(--gold-dark); color: var(--navy); font-weight: 600; }
+.btn-pill--rsvp { background: var(--gold); border-color: var(--gold-deep); color: var(--navy); font-weight: 600; }
 
 .rsvp__label {
   font-family: var(--font-serif);
@@ -518,36 +467,16 @@ body {
 .cierre__enfasis {
   font-family: var(--font-script);
   font-size: clamp(2.6rem, 9vw, 3.4rem);
-  color: var(--gold-dark);
-  margin-bottom: 3rem;
+  color: var(--gold-deep);
+  margin-bottom: 2rem;
 }
 
-.emblem-final { position: relative; width: 210px; padding-bottom: 3rem; }
-.emblem-final__ring { width: 100%; color: var(--navy); }
-.emblem-final__ring circle { fill: none; stroke: currentColor; stroke-width: 1.4; }
-.emblem-final__sprig { fill: var(--gold); }
-.emblem-final__label {
-  position: absolute;
-  top: 44%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: var(--font-script);
-  font-size: 2.6rem;
-  color: var(--gold-dark);
-}
-.emblem-final__roses {
-  position: absolute;
-  bottom: -6px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 260px;
-}
+.emblem-img { width: min(260px, 85%); }
 
 /* ==========================================================================
    Responsive
    ========================================================================== */
 @media (min-width: 860px) {
   :root { --section-pad-y: 6.5rem; }
-  .rose-cluster--side { width: 170px; }
-  .rose-cluster--bl, .rose-cluster--br { width: 190px; }
+  .rose-corner { width: 190px; }
 }

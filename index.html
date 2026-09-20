@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Mis XV &mdash; Valery</title>
 <meta name="description" content="Invitación digital para la celebración de XV años de Valery. Sábado 10 de octubre de 2026.">
-<meta name="theme-color" content="#0B1F3F">
+<meta name="theme-color" content="#0f2342">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,35 +18,8 @@
 <!-- Marco doble dorado, fijo, alrededor de todo el sitio -->
 <div class="page-frame" aria-hidden="true"></div>
 
-<!-- ============================================================
-     Sprite SVG oculto: pétalo, hoja y rosa reutilizables
-     ============================================================ -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <defs>
-    <path id="petal" d="M60 60 C46 47 42 25 60 4 C78 25 74 47 60 60 Z" />
-    <path id="leaf" d="M0 4 C16-4 34-2 46 8 C34 20 12 18 0 4 Z" />
-    <symbol id="roseBloom" viewBox="0 0 120 120">
-      <g class="rose__outer">
-        <use href="#petal" transform="rotate(0 60 60)" />
-        <use href="#petal" transform="rotate(51.43 60 60)" />
-        <use href="#petal" transform="rotate(102.86 60 60)" />
-        <use href="#petal" transform="rotate(154.29 60 60)" />
-        <use href="#petal" transform="rotate(205.71 60 60)" />
-        <use href="#petal" transform="rotate(257.14 60 60)" />
-        <use href="#petal" transform="rotate(308.57 60 60)" />
-      </g>
-      <g class="rose__inner" transform="translate(60 60) scale(0.55) translate(-60 -60)">
-        <use href="#petal" transform="rotate(25.7 60 60)" />
-        <use href="#petal" transform="rotate(77.1 60 60)" />
-        <use href="#petal" transform="rotate(128.6 60 60)" />
-        <use href="#petal" transform="rotate(180 60 60)" />
-        <use href="#petal" transform="rotate(231.4 60 60)" />
-        <use href="#petal" transform="rotate(282.9 60 60)" />
-      </g>
-      <circle class="rose__center" cx="60" cy="60" r="7" />
-    </symbol>
-  </defs>
-</svg>
+<!-- Título real para SEO / lectores de pantalla (el título visual "Valery" es una imagen) -->
+<h1 class="sr-only">Mis XV &mdash; Valery</h1>
 
 <!-- ============================================================
      1. HERO — sombrero, "Valery", escucha mi canción
@@ -67,22 +40,11 @@
   </div>
 
   <div class="hero__content">
-    <!-- Sombrero charro ilustrado (gráfico decorativo) -->
-    <svg class="hat reveal" data-reveal="up" viewBox="0 0 260 170" aria-hidden="true">
-      <ellipse class="hat__brim" cx="130" cy="122" rx="118" ry="26" />
-      <ellipse class="hat__brim-trim" cx="130" cy="122" rx="100" ry="19" />
-      <path class="hat__crown" d="M76 120c-6-46 18-84 54-84s60 38 54 84c-16-10-34-15-54-15s-38 5-54 15z" />
-      <path class="hat__band" d="M80 108c14 8 32 12 50 12s36-4 50-12" />
-      <g class="hat__stitch">
-        <path d="M92 60c10-18 24-28 38-28s28 10 38 28" />
-        <path d="M84 88c14-10 30-15 46-15s32 5 46 15" />
-      </g>
-      <circle class="hat__button" cx="130" cy="46" r="4" />
-      <path class="hat__tassel" d="M94 122c-4 14-4 26 2 36M90 128l10 4M90 140l10 2" />
-      <path class="hat__tassel" d="M166 122c4 14 4 26-2 36M170 128l-10 4M170 140l-10 2" />
-    </svg>
+    <img class="rose-garland reveal" data-reveal="fade" src="assets/images/vendor/rose-garland.png" alt="" aria-hidden="true">
 
-    <p class="hero__name reveal" data-reveal="up">Valery</p>
+    <img class="hat-img reveal" data-reveal="up" src="assets/images/vendor/sombrero.png" alt="Sombrero charro">
+
+    <img class="name-img reveal" data-reveal="up" src="assets/images/vendor/valery-wordmark.png" alt="Valery">
 
     <h2 class="hero__music-title reveal" data-reveal="up">Escucha mi canción</h2>
     <p class="hero__music-hint reveal" data-reveal="up">(Da doble clic)</p>
@@ -106,53 +68,19 @@
   </div>
 
   <!-- Rosas decorativas flanqueando la transición hacia el sobre -->
-  <div class="rose-cluster rose-cluster--bl" aria-hidden="true">
-    <svg viewBox="0 0 200 200"><use href="#roseBloom" x="10" y="60" width="120" height="120" fill="var(--navy)" /><use href="#leaf" transform="translate(20 150) rotate(15) scale(1.6)" fill="#4b6a4f" /></svg>
-  </div>
-  <div class="rose-cluster rose-cluster--br" aria-hidden="true">
-    <svg viewBox="0 0 200 200"><use href="#roseBloom" x="70" y="60" width="120" height="120" fill="var(--navy)" /><use href="#leaf" transform="translate(70 150) rotate(-15) scale(1.6)" fill="#4b6a4f" /></svg>
-  </div>
+  <img class="rose-corner rose-corner--bl reveal" data-reveal="left" src="assets/images/vendor/rose-single.png" alt="" aria-hidden="true">
+  <img class="rose-corner rose-corner--br reveal" data-reveal="right" src="assets/images/vendor/rose-single.png" alt="" aria-hidden="true">
 </header>
 
 <!-- ============================================================
      2. SOBRE CON MENSAJE
      ============================================================ -->
 <section class="section section--navy sobre-section">
-  <div class="rose-cluster rose-cluster--side rose-cluster--left reveal" data-reveal="left" aria-hidden="true">
-    <svg viewBox="0 0 220 320">
-      <use href="#roseBloom" x="0" y="40" width="130" height="130" fill="var(--navy-2)" />
-      <use href="#roseBloom" x="20" y="150" width="100" height="100" fill="var(--navy)" />
-      <use href="#leaf" transform="translate(10 90) rotate(30) scale(1.6)" fill="#4b6a4f" />
-      <use href="#leaf" transform="translate(20 250) rotate(-10) scale(1.6)" fill="#3f5c43" />
-    </svg>
-  </div>
-  <div class="rose-cluster rose-cluster--side rose-cluster--right reveal" data-reveal="right" aria-hidden="true">
-    <svg viewBox="0 0 220 320">
-      <use href="#roseBloom" x="90" y="40" width="130" height="130" fill="var(--navy-2)" />
-      <use href="#roseBloom" x="100" y="150" width="100" height="100" fill="var(--navy)" />
-      <use href="#leaf" transform="translate(150 90) rotate(150 ) scale(1.6)" fill="#4b6a4f" />
-      <use href="#leaf" transform="translate(150 250) rotate(190) scale(1.6)" fill="#3f5c43" />
-    </svg>
-  </div>
-
   <figure class="envelope reveal" data-reveal="up">
-    <svg class="envelope__art" viewBox="0 0 300 210" aria-hidden="true">
-      <rect class="envelope__body" x="4" y="4" width="292" height="202" rx="6" />
-      <path class="envelope__flap" d="M4 10 L150 118 L296 10" />
-    </svg>
-    <div class="envelope__seal" aria-hidden="true">
-      <svg viewBox="0 0 70 70">
-        <circle cx="35" cy="35" r="33" />
-        <path class="envelope__seal-shoe" d="M18 20c0 22 9 34 17 34s17-12 17-34" />
-        <circle class="envelope__seal-stud" cx="18" cy="20" r="2" />
-        <circle class="envelope__seal-stud" cx="52" cy="20" r="2" />
-        <circle class="envelope__seal-stud" cx="22" cy="40" r="1.6" />
-        <circle class="envelope__seal-stud" cx="48" cy="40" r="1.6" />
-      </svg>
-    </div>
-    <p class="envelope__text">
+    <img class="envelope__img" src="assets/images/vendor/envelope-seal.png" alt="Sobre con sello de cera en forma de herradura">
+    <figcaption class="envelope__text">
       Con el corazón lleno de ilusiones y rodeada del amor de mis padres y familia, quiero compartir contigo la alegría de celebrar mis &ldquo;XV años&rdquo; Tu presencia es especial para mí en este día.
-    </p>
+    </figcaption>
   </figure>
 </section>
 
@@ -161,29 +89,18 @@
      ============================================================ -->
 <section class="section section--navy formal-section">
   <div class="formal-frame">
-    <div class="rose-cluster rose-cluster--corner rose-cluster--tl" aria-hidden="true">
-      <svg viewBox="0 0 160 160"><use href="#roseBloom" x="-10" y="-10" width="110" height="110" fill="var(--navy-2)" /><use href="#leaf" transform="translate(60 20) rotate(60) scale(1.3)" fill="#4b6a4f" /></svg>
-    </div>
-    <div class="rose-cluster rose-cluster--corner rose-cluster--tr" aria-hidden="true">
-      <svg viewBox="0 0 160 160"><use href="#roseBloom" x="60" y="-10" width="110" height="110" fill="var(--navy-2)" /><use href="#leaf" transform="translate(60 20) rotate(120) scale(1.3)" fill="#4b6a4f" /></svg>
-    </div>
-    <div class="rose-cluster rose-cluster--corner rose-cluster--bl" aria-hidden="true">
-      <svg viewBox="0 0 160 160"><use href="#roseBloom" x="-10" y="60" width="110" height="110" fill="var(--navy-2)" /><use href="#leaf" transform="translate(60 80) rotate(-60) scale(1.3)" fill="#4b6a4f" /></svg>
-    </div>
-    <div class="rose-cluster rose-cluster--corner rose-cluster--br" aria-hidden="true">
-      <svg viewBox="0 0 160 160"><use href="#roseBloom" x="60" y="60" width="110" height="110" fill="var(--navy-2)" /><use href="#leaf" transform="translate(60 80) rotate(-120) scale(1.3)" fill="#4b6a4f" /></svg>
-    </div>
+    <img class="corner-img corner-img--tl" src="assets/images/vendor/corner-flourish-1.png" alt="" aria-hidden="true">
+    <img class="corner-img corner-img--tr" src="assets/images/vendor/corner-flourish-1.png" alt="" aria-hidden="true">
+    <img class="corner-img corner-img--bl" src="assets/images/vendor/corner-flourish-1.png" alt="" aria-hidden="true">
+    <img class="corner-img corner-img--br" src="assets/images/vendor/corner-flourish-1.png" alt="" aria-hidden="true">
 
     <p class="formal-frame__text reveal" data-reveal="up">
       La familia Rodríguez Serralde tiene el honor de invitarlos a la celebración con motivo de los XV años de vida de nuestra hija, y al cambio del Niño Dios del pueblo.
     </p>
 
-    <!-- FOTO REAL DE LA QUINCEAÑERA: reemplaza .arch-photo__placeholder por
-         <img src="assets/images/valery-arco.jpg" alt="Valery bajo un arco floral"> -->
+    <!-- Foto real: el Niño Dios del pueblo bajo el arco floral (coincide con el texto de arriba) -->
     <figure class="arch-photo reveal" data-reveal="up">
-      <div class="arch-photo__placeholder">
-        <span>Foto de Valery<br>bajo el arco</span>
-      </div>
+      <img src="assets/images/vendor/nino-dios-arco.png" alt="Niño Dios bajo un arco floral, para el cambio del pueblo">
     </figure>
   </div>
 </section>
@@ -198,20 +115,15 @@
   </h2>
 
   <div class="calendar reveal" data-reveal="up">
-    <div class="rose-cluster rose-cluster--cal-left" aria-hidden="true">
-      <svg viewBox="0 0 180 220">
-        <use href="#roseBloom" x="-20" y="10" width="120" height="120" fill="var(--navy)" />
-        <use href="#roseBloom" x="0" y="110" width="90" height="90" fill="var(--navy-2)" />
-        <use href="#leaf" transform="translate(50 90) rotate(20) scale(1.4)" fill="#4b6a4f" />
-      </svg>
-    </div>
-    <div class="rose-cluster rose-cluster--cal-right" aria-hidden="true">
-      <svg viewBox="0 0 160 160">
-        <use href="#roseBloom" x="40" y="-15" width="90" height="90" fill="var(--navy-2)" />
-        <use href="#leaf" transform="translate(40 50) rotate(-30) scale(1.2)" fill="#4b6a4f" />
-      </svg>
-    </div>
+    <img class="corner-img corner-img--cal-left" src="assets/images/vendor/corner-flourish-2.png" alt="" aria-hidden="true">
+    <img class="corner-img corner-img--cal-right" src="assets/images/vendor/corner-flourish-2.png" alt="" aria-hidden="true">
 
+    <!--
+      Nota: el sitio de referencia usa aquí una imagen de calendario genérica de
+      "Octubre 2025" (año equivocado, puramente decorativa). En vez de copiar ese
+      error, este calendario es una grilla real de octubre 2026 (el 10 SÍ es
+      sábado), construida en HTML/CSS — no depende de ninguna imagen.
+    -->
     <div class="calendar__card">
       <p class="calendar__month">Octubre</p>
       <div class="calendar__weekdays">
@@ -244,25 +156,15 @@
     <span class="countdown__sep">:</span>
     <div class="countdown__item"><span class="countdown__num" id="cdSeconds">00</span><span class="countdown__label">Segundos</span></div>
   </div>
+
+  <img class="botas-img reveal" data-reveal="up" src="assets/images/vendor/botas-charras.png" alt="Botas charras bordadas">
 </section>
 
 <!-- ============================================================
      Separador — herradura ornamental
      ============================================================ -->
 <div class="horseshoe-banner">
-  <svg class="horseshoe reveal" data-reveal="scale" viewBox="0 0 160 130" aria-hidden="true">
-    <path class="horseshoe__band" d="M22 30c0 46 20 78 58 78s58-32 58-78" />
-    <path class="horseshoe__trim" d="M22 30c0 46 20 78 58 78s58-32 58-78" />
-    <circle class="horseshoe__stud" cx="24" cy="24" r="3" />
-    <circle class="horseshoe__stud" cx="34" cy="52" r="3" />
-    <circle class="horseshoe__stud" cx="52" cy="78" r="3" />
-    <circle class="horseshoe__stud" cx="80" cy="86" r="3" />
-    <circle class="horseshoe__stud" cx="108" cy="78" r="3" />
-    <circle class="horseshoe__stud" cx="126" cy="52" r="3" />
-    <circle class="horseshoe__stud" cx="136" cy="24" r="3" />
-    <path class="horseshoe__curl" d="M22 30c-10-4-16-2-20 4" />
-    <path class="horseshoe__curl" d="M138 30c10-4 16-2 20 4" />
-  </svg>
+  <img class="horseshoe-img reveal" data-reveal="scale" src="assets/images/vendor/herradura.png" alt="Herradura ornamental">
 </div>
 
 <!-- ============================================================
@@ -273,15 +175,13 @@
   <p class="detail-place reveal" data-reveal="up">Santuario Señor<br>de las Misericordias</p>
   <p class="detail-sub reveal" data-reveal="up">San Pedro Actopan</p>
 
-  <!-- FOTO REAL DEL SANTUARIO: reemplaza .rect-photo__placeholder por
-       <img src="assets/images/santuario.jpg" alt="Santuario Señor de las Misericordias"> -->
+  <!-- Foto real del santuario -->
   <figure class="rect-photo reveal" data-reveal="up">
-    <div class="rect-photo__placeholder"><span>Foto del Santuario</span></div>
+    <img src="assets/images/vendor/santuario.png" alt="Santuario Señor de las Misericordias, San Pedro Actopan">
   </figure>
 
-  <a href="#" id="mapCeremonia" class="btn-pill reveal" data-reveal="up" target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24" class="btn-pill__icon" aria-hidden="true"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" /></svg>
-    <span>Ver ubicación</span>
+  <a href="#" id="mapCeremonia" class="btn-pill-img reveal" data-reveal="up" target="_blank" rel="noopener">
+    <img src="assets/images/vendor/boton-ubicacion.png" alt="Ver ubicación">
   </a>
   <p class="detail-time reveal" data-reveal="up">11:45 a.m.</p>
 
@@ -294,15 +194,13 @@
     Avenida México Poniente, número 22,<br>San Gregorio Atlapulco
   </p>
 
-  <!-- FOTO REAL DEL LUGAR DE RECEPCIÓN: reemplaza .rect-photo__placeholder por
-       <img src="assets/images/recepcion.jpg" alt="Salón de recepción en San Gregorio Atlapulco"> -->
+  <!-- Foto real del lugar de recepción -->
   <figure class="rect-photo reveal" data-reveal="up">
-    <div class="rect-photo__placeholder"><span>Foto de la Recepción</span></div>
+    <img src="assets/images/vendor/recepcion.png" alt="Lugar de la recepción en San Gregorio Atlapulco">
   </figure>
 
-  <a href="#" id="mapRecepcion" class="btn-pill reveal" data-reveal="up" target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24" class="btn-pill__icon" aria-hidden="true"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" /></svg>
-    <span>Ver ubicación</span>
+  <a href="#" id="mapRecepcion" class="btn-pill-img reveal" data-reveal="up" target="_blank" rel="noopener">
+    <img src="assets/images/vendor/boton-ubicacion.png" alt="Ver ubicación">
   </a>
 
   <div class="ornament-divider reveal" data-reveal="fade" aria-hidden="true">
@@ -320,34 +218,14 @@
      6. CIERRE
      ============================================================ -->
 <section class="section section--cream cierre-section">
-  <div class="ornament-divider reveal" data-reveal="fade" aria-hidden="true">
-    <svg viewBox="0 0 200 40"><path d="M0 20h70M130 20h70" /><circle cx="100" cy="20" r="5" /></svg>
-  </div>
+  <img class="rose-garland rose-garland--cierre reveal" data-reveal="fade" src="assets/images/vendor/rose-garland.png" alt="">
 
   <p class="cierre__frase reveal" data-reveal="up">
     Los momentos especiales de la vida son únicos e irrepetibles, pero al compartirlos con personas queridas, se convierten en recuerdos inolvidables.
   </p>
   <p class="cierre__enfasis reveal" data-reveal="scale">No Faltes</p>
 
-  <div class="emblem-final reveal" data-reveal="up">
-    <svg class="emblem-final__ring" viewBox="0 0 220 220" aria-hidden="true">
-      <circle cx="110" cy="110" r="84" />
-      <circle cx="110" cy="110" r="94" />
-      <path class="emblem-final__sprig" d="M110 14c-8 12-8 24 0 34 8-10 8-22 0-34z" />
-      <path class="emblem-final__sprig" d="M110 206c-8-12-8-24 0-34 8 10 8 22 0 34z" />
-    </svg>
-    <span class="emblem-final__label">XV</span>
-    <div class="emblem-final__roses" aria-hidden="true">
-      <svg viewBox="0 0 320 120">
-        <use href="#roseBloom" x="10" y="10" width="90" height="90" fill="#ffffff" stroke="var(--gold)" stroke-width="1" />
-        <use href="#roseBloom" x="90" y="-10" width="80" height="80" fill="var(--navy)" />
-        <use href="#roseBloom" x="150" y="10" width="90" height="90" fill="#ffffff" stroke="var(--gold)" stroke-width="1" />
-        <use href="#roseBloom" x="230" y="-6" width="80" height="80" fill="var(--navy)" />
-        <use href="#leaf" transform="translate(60 90) rotate(10) scale(1.4)" fill="#4b6a4f" />
-        <use href="#leaf" transform="translate(200 90) rotate(-10) scale(1.4)" fill="#4b6a4f" />
-      </svg>
-    </div>
-  </div>
+  <img class="emblem-img reveal" data-reveal="up" src="assets/images/vendor/emblema-xv.png" alt="Emblema XV">
 </section>
 
 <script src="js/main.js"></script>
