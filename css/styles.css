@@ -553,7 +553,15 @@ body {
 .detail-card .photo-framed { margin-top: 13px; }
 .detail-card .pill { margin-top: 13px; }
 
-.detail-note { margin-top: 10px; margin-bottom: 14px; max-width: 24rem; font-size: 1.08rem; font-weight: 700; }
+.detail-note {
+  margin-top: 10px;
+  margin-bottom: 14px;
+  max-width: 24rem;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
 
 .detail-time {
   position: relative; z-index: 1;
