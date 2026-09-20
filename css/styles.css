@@ -351,6 +351,8 @@ body {
 
 .formal-card .divider-orn { margin: 20px 0; color: var(--gold); }
 
+.formal-card .formal-text { margin-bottom: 18px; }
+
 .formal-card .photo-framed { margin-top: 4px; }
 
 .formal-caption {
