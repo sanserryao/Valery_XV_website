@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pinyon+Script&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/styles.css?v=3">
 </head>
 <body>
 
@@ -48,6 +48,9 @@
   <p class="hero-date reveal" data-reveal="up">Sábado 10 de octubre de 2026</p>
 
   <p class="music-label reveal" data-reveal="up">Escucha mi canción</p>
+  <!-- DUDA DE CONTENIDO: "Un vestido de besos" no estaba en el contenido original
+       del cliente (parece ser el nombre de la canción). Confirmar con el cliente
+       si se queda como subtítulo o se quita. -->
   <p class="music-sub reveal" data-reveal="up">Un vestido de besos</p>
 
   <!--
@@ -72,14 +75,21 @@
     <figcaption class="envelope__text">
       Con el corazón lleno de ilusiones y rodeada del amor de mis padres y familia, quiero compartir contigo la alegría de celebrar mis <em>XV años</em>. Tu presencia es especial para mí en este día.
     </figcaption>
+    <p class="envelope__signature">Valery</p>
   </figure>
-  <p class="envelope__signature reveal" data-reveal="fade">Valery</p>
+
+  <!-- Rosas que flanquean el sobre (además de las que flanquean el sombrero, arriba) -->
+  <img class="rose-corner rose-corner--env-left reveal" data-reveal="left" src="assets/images/vendor/rose-single.png" width="800" height="800" alt="" aria-hidden="true">
+  <img class="rose-corner rose-corner--env-right reveal" data-reveal="right" src="assets/images/vendor/rose-single.png" width="800" height="800" alt="" aria-hidden="true">
 </section>
 
 <!-- ============================================================
      3. INVITACIÓN FORMAL + FOTO
      ============================================================ -->
 <section class="formal-section">
+  <img class="rose-corner rose-corner--left reveal" data-reveal="left" src="assets/images/vendor/rose-single.png" width="800" height="800" alt="" aria-hidden="true">
+  <img class="rose-corner rose-corner--right reveal" data-reveal="right" src="assets/images/vendor/rose-single.png" width="800" height="800" alt="" aria-hidden="true">
+
   <div class="card-navy formal-card reveal" data-reveal="up">
     <img class="corner-orn corner-orn--tl" src="assets/images/vendor/corner-flourish-1.png" width="800" height="800" alt="" aria-hidden="true">
     <img class="corner-orn corner-orn--tr" src="assets/images/vendor/corner-flourish-1.png" width="800" height="800" alt="" aria-hidden="true">
@@ -203,10 +213,15 @@
       <span>Ver ubicación</span>
     </a>
     <p class="detail-time">11:45 a.m.</p>
+  </div>
 
-    <div class="divider-orn" aria-hidden="true">
-      <span class="divider-orn__line"></span><i class="divider-orn__diamond"></i><span class="divider-orn__line"></span>
-    </div>
+  <div class="card-navy detail-card detail-card--recepcion reveal" data-reveal="up">
+    <img class="corner-orn corner-orn--tl" src="assets/images/vendor/corner-flourish-1.png" width="800" height="800" alt="" aria-hidden="true">
+    <img class="corner-orn corner-orn--tr" src="assets/images/vendor/corner-flourish-1.png" width="800" height="800" alt="" aria-hidden="true">
+    <img class="corner-orn corner-orn--bl" src="assets/images/vendor/corner-flourish-1.png" width="800" height="800" alt="" aria-hidden="true">
+    <img class="corner-orn corner-orn--br" src="assets/images/vendor/corner-flourish-1.png" width="800" height="800" alt="" aria-hidden="true">
+    <div class="diamond-mark diamond-mark--top" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 1l3.4 7.6L23 12l-7.6 3.4L12 23l-3.4-7.6L1 12l7.6-3.4Z" fill="#C9A227"/></svg></div>
+    <div class="diamond-mark diamond-mark--bottom" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 1l3.4 7.6L23 12l-7.6 3.4L12 23l-3.4-7.6L1 12l7.6-3.4Z" fill="#C9A227"/></svg></div>
 
     <h2 class="detail-title" id="recepcion">RECEPCIÓN</h2>
     <p class="detail-address">
@@ -227,8 +242,9 @@
       </svg>
       <span>Ver ubicación</span>
     </a>
-    <!-- EDITA la hora de la recepción en index.html cuando esté confirmada -->
-    <p class="detail-time detail-time--placeholder">[hora] p.m.</p>
+    <!-- TODO: agregar la hora de la recepción cuando el cliente la confirme.
+         Mientras tanto no se muestra ningún texto de hora aquí (antes había
+         un placeholder "[hora] p.m." visible, se quitó para no verse roto). -->
 
     <div class="divider-orn" aria-hidden="true">
       <span class="divider-orn__line"></span><i class="divider-orn__diamond"></i><span class="divider-orn__line"></span>

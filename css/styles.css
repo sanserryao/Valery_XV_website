@@ -203,6 +203,9 @@ body {
 .rose-corner { position: absolute; width: 108px; top: 18%; pointer-events: none; z-index: 0; }
 .rose-corner--left { left: -20px; }
 .rose-corner--right { right: -20px; transform: scaleX(-1); }
+.rose-corner--env-left, .rose-corner--env-right { top: auto; bottom: 4%; }
+.rose-corner--env-left { left: -24px; }
+.rose-corner--env-right { right: -24px; transform: scaleX(-1); }
 
 .hat-img { position: relative; z-index: 1; width: min(210px, 72%); margin: 0 auto 6px; }
 
@@ -278,23 +281,29 @@ body {
 .envelope__img { width: 100%; }
 .envelope__text {
   position: absolute;
-  top: 27%;
+  top: 26%;
   left: 50%;
   transform: translateX(-50%);
-  width: 62%;
+  width: 68%;
   font-family: var(--font-serif);
-  font-size: 0.82rem;
-  line-height: 1.5;
+  font-size: 0.76rem;
+  line-height: 1.42;
   color: var(--navy);
 }
 .envelope__text em { font-style: italic; color: var(--gold-text); }
 @media (min-width: 420px) {
-  .envelope__text { font-size: 0.92rem; }
+  .envelope__text { font-size: 0.86rem; }
 }
+/* Firma "Valery" escrita dentro del papel del sobre, justo debajo del mensaje —
+   no como bloque aparte flotando con espacio vacío alrededor. Se ancla desde
+   abajo (junto al sello) para no chocar con el mensaje aunque cambie de largo. */
 .envelope__signature {
-  margin-top: 10px;
+  position: absolute;
+  bottom: 41%;
+  left: 50%;
+  transform: translateX(-50%);
   font-family: var(--font-script);
-  font-size: 1.8rem;
+  font-size: 1.3rem;
   color: var(--gold-script);
 }
 
@@ -302,8 +311,11 @@ body {
    3. INVITACIÓN FORMAL + FOTO
    ========================================================================== */
 .formal-section {
+  position: relative;
   padding: clamp(16px, 4vw, 24px) var(--page-pad) clamp(40px, 9vw, 56px);
+  overflow: hidden;
 }
+.formal-section .rose-corner { top: 40%; z-index: 0; }
 .formal-card { padding-top: clamp(44px, 10vw, 56px); }
 
 .formal-label {
@@ -492,6 +504,7 @@ body {
   padding: clamp(20px, 5vw, 28px) var(--page-pad) clamp(40px, 9vw, 56px);
 }
 .detail-card { padding-top: clamp(30px, 7vw, 40px); }
+.detail-card--recepcion { margin-top: clamp(28px, 7vw, 40px); }
 
 .detail-title {
   position: relative; z-index: 1;
@@ -521,10 +534,14 @@ body {
 .detail-address {
   position: relative; z-index: 1;
   margin-top: 8px;
+  width: 100%;
+  max-width: 26rem;
   font-family: var(--font-serif);
   font-size: 1.2rem;
   line-height: 1.45;
   color: var(--white);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 .detail-address .muted { color: var(--muted-on-navy); }
 
@@ -540,7 +557,6 @@ body {
   letter-spacing: 0.06em;
   color: var(--white);
 }
-.detail-time--placeholder { color: var(--muted-on-navy); font-weight: 500; font-style: italic; }
 
 .detail-card .divider-orn { margin: 18px 0 4px; color: var(--gold); }
 
@@ -604,6 +620,6 @@ body {
    ========================================================================== */
 @media (min-width: 640px) {
   .rose-corner { width: 140px; }
-  .rose-corner--left { left: -10px; }
-  .rose-corner--right { right: -10px; }
+  .rose-corner--left, .rose-corner--env-left { left: -10px; }
+  .rose-corner--right, .rose-corner--env-right { right: -10px; }
 }
