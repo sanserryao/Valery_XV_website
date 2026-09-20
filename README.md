@@ -95,6 +95,14 @@ assets/images/vendor/frame-{formal,ceremonia,recepcion,cierre}-{tl,tr,bl,br}.png
 Si quieres volver a generar los recortes (por ejemplo con fotos nuevas), el recorte usado fue
 un cuadro de 520×520px en cada esquina de la imagen fuente de 1125×2000px.
 
+**Los 16 PNG ya no tienen fondo — son transparentes.** El recorte original venía con el fondo
+crema/blanco de la foto fuente pintado de verdad en el PNG (opaco); se quitó con un flood-fill
+por color (Python/PIL: `ImageDraw.floodfill` desde los bordes de cada imagen, con tolerancia de
+color contra el crema de fondo, más un desenfoque leve en la máscara para que el borde de las
+rosas no quede dentado). Así las rosas se pueden usar sobre cualquier fondo, no solo el crema
+de las tarjetas. Si regeneras estos recortes con fotos nuevas, hay que repetir ese paso — un
+recorte directo sale opaco.
+
 **Excepción — Ceremonia sí usa 2 esquinas espejeadas.** La foto fuente de Ceremonia (10.webp)
 solo tiene rosas dibujadas en dos esquinas diagonales (arriba-derecha y abajo-izquierda); las
 otras dos esquinas de la foto están vacías y además tenían una línea dorada del propio marco
