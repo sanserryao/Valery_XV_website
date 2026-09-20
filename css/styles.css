@@ -126,7 +126,7 @@ body {
   background: var(--blush);
 }
 .hero__media { position: absolute; inset: 0; z-index: 0; }
-.hero__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.35; }
+.hero__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.8; }
 .hero__poster {
   position: absolute; inset: 0;
   background:
@@ -135,7 +135,7 @@ body {
 }
 .hero__overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(251,244,234,0.2) 0%, rgba(251,244,234,0.5) 100%);
+  background: linear-gradient(180deg, rgba(251,244,234,0.55) 0%, rgba(251,244,234,0.2) 22%, rgba(251,244,234,0.35) 60%, rgba(251,244,234,0.85) 100%);
 }
 
 .hero__content {

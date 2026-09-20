@@ -64,15 +64,19 @@ más de 1 MB c/u). Antes de publicar el sitio conviene pasarlos por un compresor
 (por ejemplo [squoosh.app](https://squoosh.app) o TinyPNG) y idealmente convertirlos a WebP —
 ahora mismo esto puede hacer lenta la carga en celular.
 
-## Reemplazar/agregar contenido
+## Video de fondo y canción (ya integrados)
 
-Todo está señalado con comentarios `<!-- -->` en `index.html`:
+- **`assets/video/hero-loop.mp4`** — el video generado por IA (720×1280, ~6s, loop, mudo).
+  El hero lo muestra a buena visibilidad (opacity 0.8) con un overlay claro solo para que el
+  texto no pierda contraste. Si prefieres que se note menos o más, el valor está en
+  `.hero__video { opacity: ... }` en `css/styles.css`.
+- **`assets/audio/cancion.mp3`** — "Un Vestido de Besos". El botón ya reproduce/pausa con
+  doble clic, igual que la referencia — no hay que tocar el JS.
 
-1. **Video de fondo del hero** — agrega `assets/video/hero-loop.mp4` (corto, silencioso, pocos MB)
-   y descomenta la línea `<source>` dentro de `.hero__video`. Mientras no lo agregues, se ve el
-   degradado crema/dorado de respaldo.
-2. **Canción** — agrega `assets/audio/cancion.mp3`. El botón ya está conectado a doble clic
-   (igual que la referencia), no hay que tocar el JS.
+**Optimización pendiente (video):** el mp4 pesa ~3.8 MB sin comprimir — junto con los PNG de
+`vendor/` (~9.5 MB) y el mp3 (~3.6 MB), el peso total del sitio anda por los ~17 MB. Antes de
+publicarlo en serio, comprime el video (HandBrake o `ffmpeg -crf 28`) y las imágenes (ver nota
+arriba) para que cargue rápido en datos móviles.
 
 Las fotos del Niño Dios, el santuario y la recepción ya son las reales — no hacen falta
 placeholders para esas tres.
