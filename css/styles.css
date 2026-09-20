@@ -555,6 +555,8 @@ body {
 .detail-card .photo-framed { margin-top: 13px; }
 .detail-card .pill { margin-top: 13px; }
 
+.detail-note { margin-top: 10px; margin-bottom: 14px; max-width: 24rem; }
+
 .detail-time {
   position: relative; z-index: 1;
   margin-top: 11px;
