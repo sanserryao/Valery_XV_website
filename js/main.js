@@ -35,7 +35,39 @@ document.addEventListener("DOMContentLoaded", () => {
   setupRsvpButton();
   setupMapLinks();
   setupCountdown();
+  setupHeroVideo();
 });
+
+/* --------------------------------------------------------------------------
+   Video de fondo del hero — refuerza el autoplay apenas carga la página.
+   El atributo autoplay basta en la mayoría de los navegadores, pero algunos
+   webviews de Android/iOS lo ignoran si el video no está completamente listo;
+   aquí se reintenta con .play() en cuanto hay suficientes datos, y de nuevo
+   si el usuario vuelve a la pestaña con el video pausado.
+   -------------------------------------------------------------------------- */
+function setupHeroVideo() {
+  const video = document.getElementById("heroVideo");
+  if (!video) return;
+
+  const tryPlay = () => {
+    const attempt = video.play();
+    if (attempt && attempt.catch) {
+      attempt.catch(() => {
+        console.warn("El navegador bloqueó el autoplay del video del hero.");
+      });
+    }
+  };
+
+  tryPlay();
+  video.addEventListener("loadeddata", tryPlay, { once: true });
+  video.addEventListener("canplay", tryPlay, { once: true });
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible" && video.paused) {
+      tryPlay();
+    }
+  });
+}
 
 /* --------------------------------------------------------------------------
    Animaciones de entrada al hacer scroll (Intersection Observer)

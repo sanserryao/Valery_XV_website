@@ -26,7 +26,12 @@
 
 /* ---------- Reset ---------- */
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  /* Reserva el espacio del scrollbar de forma estable para que el contenido
+     centrado (margin:0 auto) no se recorra unos pixeles hacia un lado. */
+  scrollbar-gutter: stable;
+}
 body, h1, h2, h3, p, figure { margin: 0; }
 img, svg { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
@@ -55,9 +60,10 @@ body {
   overflow-x: hidden;
 }
 
-/* ---------- Marco exterior fijo (doble línea dorada) ---------- */
+/* ---------- Marco exterior (doble línea dorada) ---------- */
+.page-wrap { position: relative; }
 .page-frame {
-  position: fixed;
+  position: absolute;
   inset: 8px;
   border: 1px solid var(--gold);
   pointer-events: none;

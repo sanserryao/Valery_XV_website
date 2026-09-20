@@ -14,8 +14,9 @@
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+<div class="page-wrap">
 
-<!-- Marco doble dorado, fijo, alrededor de todo el sitio -->
+<!-- Marco doble dorado alrededor de todo el sitio (recorre todo el documento, no solo la pantalla) -->
 <div class="page-frame" aria-hidden="true"></div>
 
 <!-- ============================================================
@@ -24,7 +25,7 @@
 <header class="hero" id="inicio">
   <div class="hero__media" aria-hidden="true">
     <div class="hero__poster" aria-hidden="true"></div>
-    <video class="hero__video" autoplay muted loop playsinline>
+    <video class="hero__video" id="heroVideo" autoplay muted loop playsinline preload="auto">
       <source src="assets/video/hero-loop.mp4" type="video/mp4">
     </video>
     <div class="hero__overlay" aria-hidden="true"></div>
@@ -226,6 +227,7 @@
   <img class="emblem-img reveal" data-reveal="up" src="assets/images/vendor/emblema-xv.png" alt="Emblema XV">
 </section>
 
+</div><!-- /.page-wrap -->
 <script src="js/main.js"></script>
 </body>
 </html>
