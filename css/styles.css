@@ -131,7 +131,7 @@ body {
   background: var(--navy-deep);
 }
 .hero__media { position: absolute; inset: 0; z-index: 0; }
-.hero__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 15%; opacity: 0.9; filter: blur(1.5px); }
+.hero__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 15%; opacity: 0.9; }
 .hero__poster {
   position: absolute; inset: 0;
   background:
@@ -230,6 +230,7 @@ body {
 .play-btn {
   position: relative;
   width: 66px; height: 66px;
+  margin: 0 auto;
   border-radius: 50%;
   display: grid; place-items: center;
   background: var(--ivory);
