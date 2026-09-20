@@ -18,11 +18,8 @@
 <!-- Marco doble dorado, fijo, alrededor de todo el sitio -->
 <div class="page-frame" aria-hidden="true"></div>
 
-<!-- Título real para SEO / lectores de pantalla (el título visual "Valery" es una imagen) -->
-<h1 class="sr-only">Mis XV &mdash; Valery</h1>
-
 <!-- ============================================================
-     1. HERO — sombrero, "Valery", escucha mi canción
+     1. HERO — video con "Mis XV" + fecha
      ============================================================ -->
 <header class="hero" id="inicio">
   <div class="hero__media" aria-hidden="true">
@@ -34,48 +31,55 @@
   </div>
 
   <div class="hero__content">
-    <img class="rose-garland reveal" data-reveal="fade" src="assets/images/vendor/rose-garland.png" alt="" aria-hidden="true">
-
-    <img class="hat-img reveal" data-reveal="up" src="assets/images/vendor/sombrero.png" alt="Sombrero charro">
-
-    <img class="name-img reveal" data-reveal="up" src="assets/images/vendor/valery-wordmark.png" alt="Valery">
-
-    <h2 class="hero__music-title reveal" data-reveal="up">Escucha mi canción</h2>
-    <p class="hero__music-hint reveal" data-reveal="up">(Da doble clic)</p>
-
-    <!--
-      AUDIO REAL: coloca tu archivo en assets/audio/cancion.mp3 (mp3, idealmente < 5 MB).
-      El botón ya está conectado a doble clic; no hay que tocar el JS.
-    -->
-    <audio id="song" preload="none" loop>
-      <source src="assets/audio/cancion.mp3" type="audio/mpeg">
-    </audio>
-
-    <button type="button" class="play-btn reveal" data-reveal="up" id="musicBtn" aria-pressed="false" aria-label="Doble clic para reproducir la canción">
-      <svg class="play-btn__icon play-btn__icon--play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
-      <svg class="play-btn__icon play-btn__icon--pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z" /></svg>
-    </button>
-
-    <div class="diamond-divider reveal" data-reveal="fade" aria-hidden="true">
-      <span></span><i></i><span></span>
-    </div>
+    <h1 class="hero__title reveal" data-reveal="fade">Mis XV</h1>
+    <span class="hero__title-rule" aria-hidden="true"></span>
+    <p class="hero__date reveal" data-reveal="fade">Sábado 10 de Octubre de 2026</p>
   </div>
-
-  <!-- Rosas decorativas flanqueando la transición hacia el sobre -->
-  <img class="rose-corner rose-corner--bl reveal" data-reveal="left" src="assets/images/vendor/rose-single.png" alt="" aria-hidden="true">
-  <img class="rose-corner rose-corner--br reveal" data-reveal="right" src="assets/images/vendor/rose-single.png" alt="" aria-hidden="true">
 </header>
 
 <!-- ============================================================
-     2. SOBRE CON MENSAJE
+     2. TARJETA — sombrero, "Valery", escucha mi canción, sobre
      ============================================================ -->
-<section class="section section--navy sobre-section">
-  <figure class="envelope reveal" data-reveal="up">
-    <img class="envelope__img" src="assets/images/vendor/envelope-seal.png" alt="Sobre con sello de cera en forma de herradura">
-    <figcaption class="envelope__text">
-      Con el corazón lleno de ilusiones y rodeada del amor de mis padres y familia, quiero compartir contigo la alegría de celebrar mis &ldquo;XV años&rdquo; Tu presencia es especial para mí en este día.
-    </figcaption>
-  </figure>
+<section class="section section--navy invite-section">
+  <div class="invite-wrap">
+    <div class="invite-card">
+      <img class="rose-corner rose-corner--tl reveal" data-reveal="left" src="assets/images/vendor/rose-single.png" alt="" aria-hidden="true">
+      <img class="rose-corner rose-corner--tr reveal" data-reveal="right" src="assets/images/vendor/rose-single.png" alt="" aria-hidden="true">
+      <img class="rose-corner rose-corner--bl reveal" data-reveal="left" src="assets/images/vendor/rose-single.png" alt="" aria-hidden="true">
+      <img class="rose-corner rose-corner--br reveal" data-reveal="right" src="assets/images/vendor/rose-single.png" alt="" aria-hidden="true">
+
+      <img class="hat-img reveal" data-reveal="up" src="assets/images/vendor/sombrero.png" alt="Sombrero charro">
+
+      <img class="name-img reveal" data-reveal="up" src="assets/images/vendor/valery-wordmark.png" alt="Valery">
+
+      <h2 class="hero__music-title reveal" data-reveal="up">Escucha mi canción</h2>
+      <p class="hero__music-hint reveal" data-reveal="up">(Da doble clic)</p>
+
+      <!--
+        AUDIO REAL: coloca tu archivo en assets/audio/cancion.mp3 (mp3, idealmente < 5 MB).
+        El botón ya está conectado a doble clic; no hay que tocar el JS.
+      -->
+      <audio id="song" preload="none" loop>
+        <source src="assets/audio/cancion.mp3" type="audio/mpeg">
+      </audio>
+
+      <button type="button" class="play-btn reveal" data-reveal="up" id="musicBtn" aria-pressed="false" aria-label="Doble clic para reproducir la canción">
+        <svg class="play-btn__icon play-btn__icon--play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
+        <svg class="play-btn__icon play-btn__icon--pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z" /></svg>
+      </button>
+
+      <div class="diamond-divider reveal" data-reveal="fade" aria-hidden="true">
+        <span></span><i></i><span></span>
+      </div>
+
+      <figure class="envelope reveal" data-reveal="up">
+        <img class="envelope__img" src="assets/images/vendor/envelope-seal.png" alt="Sobre con sello de cera en forma de herradura">
+        <figcaption class="envelope__text">
+          Con el corazón lleno de ilusiones y rodeada del amor de mis padres y familia, quiero compartir contigo la alegría de celebrar mis &ldquo;XV años&rdquo; Tu presencia es especial para mí en este día.
+        </figcaption>
+      </figure>
+    </div>
+  </div>
 </section>
 
 <!-- ============================================================

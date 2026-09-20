@@ -117,42 +117,91 @@ body {
    ========================================================================== */
 .hero {
   position: relative;
-  min-height: 100svh;
-  min-height: 100vh;
+  min-height: 40vh;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: var(--blush);
+  background: var(--navy-deep);
 }
 .hero__media { position: absolute; inset: 0; z-index: 0; }
-.hero__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 15%; opacity: 0.95; }
+.hero__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 15%; opacity: 0.9; filter: blur(1.5px); }
 .hero__poster {
   position: absolute; inset: 0;
   background:
     radial-gradient(circle at 50% 15%, rgba(231,170,81,0.16), transparent 55%),
-    linear-gradient(180deg, var(--blush) 0%, var(--cream-2) 100%);
+    linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
 }
 .hero__overlay {
   position: absolute; inset: 0;
-  /* Transparente arriba (para que la chica del video se vea completa),
-     y solo oscurece/aclara hacia abajo, donde vive el contenido. */
-  background: linear-gradient(180deg, rgba(251,244,234,0) 0%, rgba(251,244,234,0) 42%, rgba(251,244,234,0.55) 58%, rgba(251,244,234,0.92) 82%, rgba(251,244,234,0.97) 100%);
+  background: linear-gradient(180deg, rgba(8,15,30,0.55) 0%, rgba(8,15,30,0.45) 100%);
 }
 
 .hero__content {
   position: relative; z-index: 2;
   display: flex; flex-direction: column; align-items: center;
   text-align: center;
-  padding: 1.5rem 1.75rem 3rem;
+  padding: 3.5rem 1.75rem;
   width: 100%;
+}
+.hero__title {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(2rem, 8vw, 2.6rem);
+  letter-spacing: 0.05em;
+  color: var(--ivory);
+  margin-bottom: 0.65rem;
+}
+.hero__title-rule { display: block; width: 130px; height: 1px; background: rgba(255,253,246,0.6); margin: 0 auto 0.65rem; }
+.hero__date {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ivory);
+  opacity: 0.92;
+}
+
+/* ==========================================================================
+   2. TARJETA — sombrero, "Valery", escucha mi canción, sobre
+   ========================================================================== */
+.invite-section { padding: clamp(3rem, 8vw, 5rem) 0.75rem; }
+.invite-wrap { position: relative; width: 100%; }
+.invite-card {
+  position: relative;
+  z-index: 2;
+  background: var(--cream);
+  max-width: 264px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 2rem;
+  border: 1px solid var(--gold);
+}
+.invite-card::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(231,170,81,0.5);
+  pointer-events: none;
+}
+
+.rose-corner { position: absolute; width: 118px; pointer-events: none; z-index: 1; }
+.rose-corner--tl { top: 3%; left: -58px; }
+.rose-corner--tr { top: 3%; right: -58px; transform: scaleX(-1); }
+.rose-corner--bl { bottom: 12%; left: -58px; }
+.rose-corner--br { bottom: 12%; right: -58px; transform: scaleX(-1); }
+
+@media (min-width: 420px) {
+  .invite-card { max-width: 300px; }
+  .rose-corner { width: 140px; }
+  .rose-corner--tl, .rose-corner--bl { left: -70px; }
+  .rose-corner--tr, .rose-corner--br { right: -70px; }
 }
 
 .rose-garland { width: min(340px, 90%); margin-bottom: 0.5rem; }
 .rose-garland--cierre { margin-bottom: 1.75rem; }
 
-.hat-img { width: min(230px, 75%); margin: 0 auto 0.75rem; }
-.name-img { width: min(280px, 80%); margin: 0 auto 1.5rem; }
+.hat-img { width: min(220px, 85%); margin: 0 auto 0.75rem; position: relative; z-index: 2; }
+.name-img { width: min(260px, 85%); margin: 0 auto 1.5rem; position: relative; z-index: 2; }
 
 .hero__music-title {
   font-family: var(--font-sans);
@@ -186,16 +235,7 @@ body {
 .play-btn[aria-pressed="true"] .play-btn__icon--play { display: none; }
 .play-btn[aria-pressed="true"] .play-btn__icon--pause { display: block; }
 
-.rose-corner { position: absolute; width: 150px; pointer-events: none; }
-.rose-corner--bl { left: -20px; bottom: -10px; }
-.rose-corner--br { right: -20px; bottom: -10px; transform: scaleX(-1); }
-
-/* ==========================================================================
-   2. SOBRE CON MENSAJE
-   ========================================================================== */
-.sobre-section { padding-top: clamp(4rem, 10vw, 6rem); padding-bottom: clamp(4rem, 10vw, 6rem); }
-
-.envelope { position: relative; width: min(360px, 100%); }
+.envelope { position: relative; width: min(320px, 100%); margin: 0.5rem auto 0; z-index: 2; }
 .envelope__img { width: 100%; }
 .envelope__text {
   position: absolute;
